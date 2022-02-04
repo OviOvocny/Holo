@@ -1,0 +1,75 @@
+{
+  "name": "holo",
+  "version": "0.1.0",
+  "homepage": "https://altarsystems.com/",
+  "description": "Holo is a Vue 3 UI library inspired by over-the-top sci-fi eyecandy (yes, really)",
+  "author": {
+    "name": "Ovi",
+    "email": "me@ovi.moe"
+  },
+  "main": "./dist/holo.umd.js",
+  "module": "./dist/holo.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/holo.es.js",
+      "require": "./dist/holo.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "unpkg": "dist/holo.umd.min.js",
+  "types": "src/types/index.d.ts",
+  "private": false,
+  "license": "MIT",
+  "bugs": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "keywords": [
+    "holo",
+    "vue",
+    "vue3",
+    "vuejs",
+    "typescript",
+    "vue-components",
+    "ui"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint:eslint": "eslint src/**/*.{ts,vue}",
+    "lint:prettier": "prettier -w -u src/**/*.{ts,vue}",
+    "lint:stylelint": "stylelint **/*.{css,vue}"
+  },
+  "devDependencies": {
+    "@types/body-scroll-lock": "^3.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "@typescript-eslint/parser": "^5.10.2",
+    "@vitejs/plugin-vue": "^2.1.0",
+    "autoprefixer": "^10.4.2",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier-vue": "^3.1.0",
+    "eslint-plugin-vue": "^8.4.1",
+    "husky": "4",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.5.1",
+    "stylelint": "^14.3.0",
+    "stylelint-config-recommended": "^6.0.0",
+    "stylelint-config-recommended-vue": "^1.1.0",
+    "stylelint-config-standard": "^24.0.0",
+    "typescript": "^4.5.5",
+    "vite": "^2.7.13"
+  },
+  "dependencies": {
+    "@vueuse/core": "^5.0.3",
+    "@vueuse/integrations": "^5.0.3",
+    "body-scroll-lock": "^3.1.5",
+    "holocore": "^0.1.0",
+    "vue": "^3.0.5"
+  }
+}

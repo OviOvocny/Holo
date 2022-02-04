@@ -1,0 +1,29 @@
+/* Holo's default style variables */
+
+/* =========================== Holographic Dark ============================ */
+:root,
+:root[data-holo-theme="holographic-dark"] {
+  /* Typography ------------------------------------------------------------ */
+
+  /* -> Font families */
+  --holo-text-font: ibm plex sans;
+  --holo-display-font: josefin sans;
+
+  /* Colors ---------------------------------------------------------------- */
+
+  /* -> Base colors (near neutral) */
+  --holo-base-dark: hsl(212deg 20% 10% / 100%);
+  --holo-base-light: hsl(0deg 0% 95% / 100%);
+
+  /* -> Distinctive colors (override with brand colors) */
+  --holo-primary: hsl(0deg 0% 95% / 100%);
+  --holo-accent: hsl(212deg 65% 85% / 100%);
+
+  /* -> Informative colors (take care to keep the meaning) */
+  --holo-highlight: hsl(212deg 78% 68% / 100%);
+  --holo-ok: hsl(151deg 66% 62% / 100%);
+  --holo-caution: hsl(21deg 100% 68% / 100%);
+  --holo-destructive: hsl(345deg 78% 62% / 100%);
+
+  /* <3 -------------------------------------------------------------------- */
+}

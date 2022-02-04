@@ -1,0 +1,1 @@
+export { useCheckSlot } from './useCheckSlot'

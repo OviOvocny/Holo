@@ -1,0 +1,18 @@
+@import "variables.css";
+@import "motion.css";
+
+html {
+  --system-fonts-fallback:
+    system-ui,
+    -apple-system,
+    blinkmacsystemfont,
+    segoe ui,
+    roboto,
+    helvetica neue,
+    arial,
+    noto sans,
+    sans-serif;
+
+  font-family: var(--holo--text-font, var(--system-fonts-fallback));
+  -webkit-font-smoothing: antialiased;
+}

@@ -1,0 +1,6 @@
+{
+  "src/**/*.{ts,vue}": [
+    "npm run lint:eslint",
+    "npm run lint:stylelint"
+  ]
+}
