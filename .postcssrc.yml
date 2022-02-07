@@ -2,3 +2,4 @@ parser: false
 map: false
 plugins:
   autoprefixer: {}
+  postcss-input-style: {}

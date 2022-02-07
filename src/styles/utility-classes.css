@@ -1,0 +1,58 @@
+:focus {
+  outline: none;
+}
+
+.holo-focus-frame {
+  position: relative;
+}
+
+.holo-focus-frame::before,
+:focus::before {
+  content: "";
+  position: absolute;
+  width: calc(100% + var(--border-width, 2px) * 2 + var(--frame-outset, 0em) * 2);
+  height: calc(100% + var(--border-width, 2px) * 2 + var(--frame-outset, 0em) * 2);
+  top: calc(-2 * var(--border-width, 2px) - var(--frame-outset, 0em));
+  left: calc(-2 * var(--border-width, 2px) - var(--frame-outset, 0em));
+  border-width: var(--border-width, 2px);
+  border-style: solid;
+  border-color: inherit;
+  pointer-events: none;
+  transition: all 0.2s, opacity 0.4s var(--ease-blink);
+  clip-path:
+    polygon(
+      var(--corner-size, 1em) -2%,
+      var(--corner-size, 1em) -1%,
+      calc(100% - var(--corner-size, 1em)) -1%,
+      calc(100% - var(--corner-size, 1em)) var(--corner-size, 1em),
+      101% var(--corner-size, 1em),
+      101% calc(100% - var(--corner-size, 1em)),
+      calc(100% - var(--corner-size, 1em)) calc(100% - var(--corner-size, 1em)),
+      calc(100% - var(--corner-size, 1em)) 101%,
+      var(--corner-size, 1em) 101%,
+      var(--corner-size, 1em) calc(100% - var(--corner-size, 1em)),
+      -1% calc(100% - var(--corner-size, 1em)),
+      -1% var(--corner-size, 1em),
+      var(--corner-size, 1em) var(--corner-size, 1em),
+      var(--corner-size, 1em) -2%,
+      -2% -2%,
+      -2% 102%,
+      102% 102%,
+      102% -2%
+    );
+}
+
+/*
+:focus:hover:not(:active)::before {
+  transition: all 0.2s, opacity 0.4s var(--ease-out-expo);
+  opacity: 0;
+}
+*/
+
+.holo-unfocused {
+  filter: blur(var(--blur-size, 2px));
+}
+
+.holo-unfocused-backdrop {
+  backdrop-filter: blur(var(--blur-size, 2px));
+}

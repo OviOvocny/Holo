@@ -1,1 +1,38 @@
+/* Easing variables */
+.holo-root {
+  --ease-blink: cubic-bezier(0.3, 3, 0.5, -1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Utility animation keyframes */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes wiggle {
+  20% {
+    transform: translateX(calc(var(--wiggle-size, 2%) * -2));
+  }
+
+  40% {
+    transform: translateX(calc(var(--wiggle-size, 2%) * 2));
+  }
+
+  60% {
+    transform: translateX(calc(var(--wiggle-size, 2%) * -1));
+  }
+
+  80% {
+    transform: translateX(var(--wiggle-size, 2%));
+  }
+}
+
 /* Animation and transition classes for Vue transitions */

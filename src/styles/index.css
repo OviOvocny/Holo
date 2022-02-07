@@ -1,7 +1,11 @@
 @import "variables.css";
 @import "motion.css";
 
-html {
+/* helper class sheets */
+@import "color-classes.css";
+@import "utility-classes.css";
+
+.holo-root {
   --system-fonts-fallback:
     system-ui,
     -apple-system,
@@ -13,6 +17,12 @@ html {
     noto sans,
     sans-serif;
 
-  font-family: var(--holo--text-font, var(--system-fonts-fallback));
+  font-family: var(--text-font, var(--system-fonts-fallback));
   -webkit-font-smoothing: antialiased;
+}
+
+.holo-root h1,
+.holo-root h2 {
+  font-family: var(--display-font, var(--system-fonts-fallback));
+  text-transform: uppercase;
 }

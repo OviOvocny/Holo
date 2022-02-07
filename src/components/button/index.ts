@@ -1,5 +1,5 @@
 import { App } from 'vue'
-import Button from './HoloButton.vue'
+import Button from './Button.vue'
 
 Button.install = (Vue: App) => {
   Vue.component(Button.name, Button)

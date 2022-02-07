@@ -3,5 +3,13 @@
   "ignoreFiles": [
     "node_modules/**/*",
     "dist/**/*"
-  ]
+  ],
+  "rules": {
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": ["thumb", "track"]
+      }
+    ]
+  }
 }

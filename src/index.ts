@@ -1,4 +1,5 @@
 import Button from './components/button'
+import Slider from './components/inputs/slider'
 import Sheet from './components/sheet'
 
 import './styles/index.css'
@@ -6,6 +7,7 @@ import { App } from 'vue'
 
 const components = {
   Button,
+  Slider,
   Sheet
 }
 
@@ -19,4 +21,5 @@ function install(Vue: App): void {
 export default { install }
 
 export { default as Button } from './components/button'
+export { default as Slider } from './components/inputs/slider'
 export { default as Sheet } from './components/sheet'

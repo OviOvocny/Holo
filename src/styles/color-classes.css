@@ -1,0 +1,39 @@
+.holo-variable-color-background {
+  --variable-color: var(--background);
+  --readable-color: var(--foreground);
+}
+
+.holo-variable-color-foreground {
+  --variable-color: var(--foreground);
+  --readable-color: var(--background);
+}
+
+.holo-variable-color-primary {
+  --variable-color: var(--primary);
+  --readable-color: var(--background);
+}
+
+.holo-variable-color-accent {
+  --variable-color: var(--accent);
+  --readable-color: var(--background);
+}
+
+.holo-variable-color-highlight {
+  --variable-color: var(--highlight);
+  --readable-color: var(--background);
+}
+
+.holo-variable-color-okay {
+  --variable-color: var(--okay);
+  --readable-color: var(--foreground);
+}
+
+.holo-variable-color-caution {
+  --variable-color: var(--caution);
+  --readable-color: var(--foreground);
+}
+
+.holo-variable-color-destructive {
+  --variable-color: var(--destructive);
+  --readable-color: var(--foreground);
+}
