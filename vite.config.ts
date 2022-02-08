@@ -15,11 +15,12 @@ const config: UserConfig = {
       name: 'Holo'
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', 'holocore'],
       output: {
         exports: 'named',
         globals: {
-          vue: 'Vue'
+          vue: 'Vue',
+          holocore: 'HoloCore'
         }
       }
     }

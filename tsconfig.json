@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "dist/types",
     "target": "es2018",
     "module": "esnext",
     "strict": true,
@@ -18,6 +19,6 @@
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["src/**/*.ts", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"],
   "exclude": ["node_modules", "dist", "**/*.js"]
 }

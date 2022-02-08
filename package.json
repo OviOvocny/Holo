@@ -7,8 +7,10 @@
     "name": "Ovi",
     "email": "me@ovi.moe"
   },
+  "files": ["dist"],
   "main": "./dist/holo.umd.js",
   "module": "./dist/holo.es.js",
+  "typings": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/holo.es.js",
@@ -16,8 +18,7 @@
     },
     "./dist/style.css": "./dist/style.css"
   },
-  "unpkg": "dist/holo.umd.min.js",
-  "types": "src/types/index.d.ts",
+  "unpkg": "dist/holo.umd.js",
   "private": false,
   "license": "MIT",
   "bugs": "",
@@ -25,10 +26,6 @@
     "type": "git",
     "url": ""
   },
-  "files": [
-    "src",
-    "dist"
-  ],
   "keywords": [
     "holo",
     "vue",
@@ -41,7 +38,7 @@
   "scripts": {
     "dev": "vite",
     "dev:host": "vite --host",
-    "build": "vite build",
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly --skipLibCheck",
     "lint:eslint": "eslint src/**/*.{ts,vue}",
     "lint:prettier": "prettier -w -u src/**/*.{ts,vue}",
     "lint:stylelint": "stylelint **/*.{css,vue}"
@@ -65,7 +62,8 @@
     "stylelint-config-recommended-vue": "^1.1.0",
     "stylelint-config-standard": "^24.0.0",
     "typescript": "^4.5.5",
-    "vite": "^2.7.13"
+    "vite": "^2.7.13",
+    "vue-tsc": "^0.31.2"
   },
   "dependencies": {
     "@vueuse/core": "^5.0.3",
