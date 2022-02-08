@@ -27,3 +27,30 @@
 
   /* <3 -------------------------------------------------------------------- */
 }
+
+/* =========================== Holographic Light ============================ */
+.holo-root[data-holo-theme="holographic-light"] {
+  /* Typography ------------------------------------------------------------ */
+
+  /* -> Font families */
+  --text-font: ibm plex sans;
+  --display-font: josefin sans;
+
+  /* Colors ---------------------------------------------------------------- */
+
+  /* -> Base colors (near neutral) */
+  --background: 212deg 20% 90%;
+  --foreground: 212deg 30% 15%;
+
+  /* -> Distinctive colors (override with brand colors) */
+  --primary: 0deg 0% 5%;
+  --accent: 212deg 65% 35%;
+
+  /* -> Informative colors (take care to keep the meaning) */
+  --highlight: 212deg 78% 48%;
+  --okay: 151deg 66% 52%;
+  --caution: 21deg 100% 58%;
+  --destructive: 345deg 78% 52%;
+
+  /* <3 -------------------------------------------------------------------- */
+}
