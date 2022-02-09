@@ -7,8 +7,8 @@ export default {
 <script setup lang="ts">
 import { ref } from 'vue'
 import HoloWrapper from '@/framework/HoloWrapper.vue'
-import HoloTriggerEffect from '@/framework/HoloEffects/HoloTriggerEffect.vue'
-import HoloRippleEffect from '@/framework/HoloEffects/HoloRippleEffect.vue'
+import HoloTriggerEffect from '@/framework/HoloEffects/HoloTriggerEffect'
+import HoloRippleEffect from '@/framework/HoloEffects/HoloRippleEffect'
 import { normalizeCoordinates } from 'holocore/src/utils/normalizeCoordinates'
 
 const props = withDefaults(
