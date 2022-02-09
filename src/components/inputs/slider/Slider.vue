@@ -10,8 +10,8 @@ export default {
 const props = withDefaults(
   defineProps<{
     modelValue: number
-    min?: number
-    max?: number
+    min?: number | string
+    max?: number | string
     color?: string
     noFill?: boolean
     thin?: boolean
@@ -34,8 +34,9 @@ function updateInput(e: Event) {
 }
 
 const gstop = computed(() => {
-  const percentage =
-    ((props.modelValue - props.min) / (props.max - props.min)) * 100
+  const min = typeof props.min === 'string' ? parseFloat(props.min) : props.min
+  const max = typeof props.max === 'string' ? parseFloat(props.max) : props.max
+  const percentage = ((props.modelValue - min) / (max - min)) * 100
   const thumbAdjustment = 3 / 2
   const adjusted =
     (percentage / 100) * (100 - thumbAdjustment - thumbAdjustment) +
