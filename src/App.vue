@@ -2,106 +2,103 @@
 import { ref } from 'vue'
 
 const sliderVal = ref(35)
+const checkboxVal = ref(false)
 </script>
 
 <template>
   <div class="holo-root">
-    <!-- <h1>Hi, sheet!</h1>
-    <HSheet
-      visible
-      class="sheet-test"
-    >
-      <div class="sheet-test-content">
-        LOL, hi there! I am wrapped in sheet...
-      </div>
-    </HSheet> -->
-    <h1>Hi, button!</h1>
-    <HButton>Hello. I am button.</HButton>
-    <HButton color="okay">
-      I am okay button.
-    </HButton>
-    <HButton color="caution">
-      I am cautious button.
-    </HButton>
-    <HButton color="destructive">
-      I am DANGER button.
-    </HButton>
-    <HButton
-      color="okay"
-      borderless
-    >
-      I am borderless.
-    </HButton>
-    <HButton
-      color="caution"
-      hollow
-    >
-      I am hollow.
-    </HButton>
-    <HButton
-      color="highlight"
-      hollow
-      borderless
-    >
-      I am both, only text.
-    </HButton>
-    <HButton
-      disabled
-      color="destructive"
-    >
-      Eww. Don't touch me.
-    </HButton>
-    <HButton
-      disabled
-      borderless
-      color="caution"
-    >
-      Noooo.
-    </HButton>
-    <HButton
-      disabled
-      hollow
-      color="destructive"
-    >
-      Eek!
-    </HButton>
-    <HButton
-      disabled
-      hollow
-      borderless
-      color="highlight"
-    >
-      Stealth mode activate
-    </HButton>
-
-    <div class="holo-focus-frame border-test">
-      LOLEC
+    <div id="buttons">
+      <h1>Hi, button!</h1>
+      <HButton>Hello. I am button.</HButton>
+      <HButton color="okay">
+        I am okay button.
+      </HButton>
+      <HButton color="caution">
+        I am cautious button.
+      </HButton>
+      <HButton color="destructive">
+        I am DANGER button.
+      </HButton>
+      <HButton
+        color="okay"
+        borderless
+      >
+        I am borderless.
+      </HButton>
+      <HButton
+        color="caution"
+        hollow
+      >
+        I am hollow.
+      </HButton>
+      <HButton
+        color="highlight"
+        hollow
+        borderless
+      >
+        I am both, only text.
+      </HButton>
+      <HButton
+        disabled
+        color="destructive"
+      >
+        Eww. Don't touch me.
+      </HButton>
+      <HButton
+        disabled
+        borderless
+        color="caution"
+      >
+        Noooo.
+      </HButton>
+      <HButton
+        disabled
+        hollow
+        color="destructive"
+      >
+        Eek!
+      </HButton>
+      <HButton
+        disabled
+        hollow
+        borderless
+        color="highlight"
+      >
+        Stealth mode activate
+      </HButton>
     </div>
-
-    <h1>Hi, Slider!</h1>
-    <HSlider
-      v-model="sliderVal"
-      color="highlight"
-      step="0.1"
-    />
-    <HSlider
-      v-model="sliderVal"
-      color="highlight"
-      disabled
-      step="0.1"
-    />
-    <HSlider
-      v-model="sliderVal"
-      thin
-      color="destructive"
-      min="-100"
-    />
-    <HSlider
-      v-model="sliderVal"
-      no-fill
-      color="primary"
-      max="69"
-    />
+    <div id="sliders">
+      <h1>Hi, Slider!</h1>
+      <HSlider
+        v-model="sliderVal"
+        color="highlight"
+        step="0.1"
+      />
+      <HSlider
+        v-model="sliderVal"
+        color="highlight"
+        disabled
+        step="0.1"
+      />
+      <HSlider
+        v-model="sliderVal"
+        thin
+        color="destructive"
+        min="-100"
+      />
+      <HSlider
+        v-model="sliderVal"
+        no-fill
+        color="primary"
+        max="69"
+      />
+    </div>
+    <div id="checkboxes">
+      <h1>Hi, checkbox!</h1>
+      <HCheckbox v-model="checkboxVal" color="okay">
+        This is {{ checkboxVal }}
+      </HCheckbox>
+    </div>
   </div>
 </template>
 
@@ -141,9 +138,6 @@ h1 {
   padding: 1em;
   background-color: #fff6;
   border: hsl(var(--primary));
-
-  /* border-image: url("@/graphics/border-image-focus-2.svg") 1;
-  border-image-outset: 0.35em; */
 }
 
 .border-test:hover {

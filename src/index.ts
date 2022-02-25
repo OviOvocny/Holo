@@ -1,5 +1,5 @@
 import Button from './components/button'
-import Slider from './components/inputs/slider'
+import { Slider, Checkbox } from './components/inputs'
 import Sheet from './components/sheet'
 
 import './styles/index.css'
@@ -8,6 +8,7 @@ import { App } from 'vue'
 const components = {
   Button,
   Slider,
+  Checkbox,
   Sheet
 }
 
