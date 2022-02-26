@@ -8,10 +8,11 @@ export default {
 </script>
 
 <script setup lang="ts">
-withDefaults(
+const props = withDefaults(
   defineProps<{
     modelValue: boolean
     name?: string
+    disabled?: boolean
     color?: string
     loading?: boolean
   }>(),
@@ -37,7 +38,7 @@ const cornerOffset = ref(-1)
 const focused = ref(false)
 
 function enterVisual() {
-  if (focused.value) return
+  if (focused.value || props.disabled) return
   cornerOffset.value = offsetMax
 }
 function leaveVisual() {
@@ -86,6 +87,7 @@ watch(
       type="checkbox"
       class="holo-checkbox-element"
       :value="modelValue"
+      :disabled="disabled"
       v-bind="$attrs"
       @change="updateInput"
       @focus="focus"
@@ -141,6 +143,7 @@ watch(
   width: 0;
   height: 0;
   opacity: 0;
+  pointer-events: none;
 }
 
 .holo-checkbox-visual {
@@ -185,6 +188,10 @@ watch(
   opacity: 0;
 }
 
+.holo-checkbox-element:disabled + .holo-checkbox-visual {
+  cursor: not-allowed;
+}
+
 .holo-checkbox-element:checked + .holo-checkbox-visual .hck-tick {
   stroke-dashoffset: -5;
   opacity: 1;
@@ -193,5 +200,10 @@ watch(
 .holo-checkbox-element:focus + .holo-checkbox-visual .hck-corner {
   stroke: hsl(var(--foreground));
 }
+
+.holo-checkbox-element:disabled + .holo-checkbox-visual .hck-tl { opacity: 0.5; }
+.holo-checkbox-element:disabled + .holo-checkbox-visual .hck-tr { opacity: 0.4; }
+.holo-checkbox-element:disabled + .holo-checkbox-visual .hck-bl { opacity: 0.3; }
+.holo-checkbox-element:disabled + .holo-checkbox-visual .hck-br { opacity: 0.2; }
 
 </style>

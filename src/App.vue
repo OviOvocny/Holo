@@ -110,6 +110,12 @@ const radioVal = ref('')
       >
         Things are loading
       </HCheckbox>
+      <HCheckbox
+        v-model="checkboxVal"
+        disabled
+      >
+        This is disabled
+      </HCheckbox>
     </div>
     <div id="radios">
       <h1>Hi, radio!</h1>
@@ -126,6 +132,13 @@ const radioVal = ref('')
         value="r2"
       >
         Or this
+      </HRadio>
+      <HRadio
+        v-model="radioVal"
+        value="r3"
+        disabled
+      >
+        But not this
       </HRadio>
     </div>
   </div>

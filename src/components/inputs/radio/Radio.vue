@@ -12,6 +12,7 @@ const props = withDefaults(
     modelValue: string | number
     value: string | number
     name?: string
+    disabled?: boolean
     color?: string
     loading?: boolean
   }>(),
@@ -46,6 +47,7 @@ const checked = computed(() => props.modelValue === props.value)
       class="holo-radio-element"
       :checked="checked"
       :value="modelValue"
+      :disabled="disabled"
       v-bind="$attrs"
       @change="updateInput"
     >
@@ -110,6 +112,7 @@ const checked = computed(() => props.modelValue === props.value)
   width: 0;
   height: 0;
   opacity: 0;
+  pointer-events: none;
 }
 
 .holo-radio-visual {
@@ -135,10 +138,6 @@ const checked = computed(() => props.modelValue === props.value)
 
 .holo-radio-label {
   padding-left: 0.75ch;
-}
-
-.holo-radio:hover .hrb-ring {
-  stroke-width: 15;
 }
 
 .holo-radio.holo-loading .hrb-ring * {
@@ -169,6 +168,10 @@ const checked = computed(() => props.modelValue === props.value)
   opacity: 0;
 }
 
+.holo-radio-element:disabled + .holo-radio-visual {
+  cursor: not-allowed;
+}
+
 .holo-radio-element:checked + .holo-radio-visual .hrb-tick {
   opacity: 1;
   transform: scale(1);
@@ -179,13 +182,21 @@ const checked = computed(() => props.modelValue === props.value)
   animation: spin 3s linear infinite;
 }
 
+.holo-radio-element:disabled + .holo-radio-visual .hrb-ring {
+  opacity: 0.5;
+}
+
 @keyframes spin {
   100% {
     transform: rotate(360deg);
   }
 }
 
-.holo-radio:hover .hrb-ring *:nth-child(even),
+.holo-radio:hover .holo-radio-element:not(:disabled) + .holo-radio-visual .hrb-ring {
+  stroke-width: 15;
+}
+
+.holo-radio:hover .holo-radio-element:not(:disabled) + .holo-radio-visual .hrb-ring *:nth-child(even),
 .holo-radio:not(.holo-loading) .holo-radio-element:focus + .holo-radio-visual .hrb-ring *:nth-child(even) {
   stroke-dashoffset: 100%;
 }
