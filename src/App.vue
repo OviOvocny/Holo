@@ -3,6 +3,8 @@ import { ref } from 'vue'
 
 const sliderVal = ref(35)
 const checkboxVal = ref(false)
+const loadingStuff = ref(false)
+const radioVal = ref('')
 </script>
 
 <template>
@@ -95,9 +97,36 @@ const checkboxVal = ref(false)
     </div>
     <div id="checkboxes">
       <h1>Hi, checkbox!</h1>
-      <HCheckbox v-model="checkboxVal" color="okay">
+      <HCheckbox
+        v-model="checkboxVal"
+        color="okay"
+        :loading="loadingStuff"
+      >
         This is {{ checkboxVal }}
       </HCheckbox>
+      <HCheckbox
+        v-model="loadingStuff"
+        color="highlight"
+      >
+        Things are loading
+      </HCheckbox>
+    </div>
+    <div id="radios">
+      <h1>Hi, radio!</h1>
+      <HRadio
+        v-model="radioVal"
+        value="r1"
+        color="okay"
+        :loading="loadingStuff"
+      >
+        This
+      </HRadio>
+      <HRadio
+        v-model="radioVal"
+        value="r2"
+      >
+        Or this
+      </HRadio>
     </div>
   </div>
 </template>

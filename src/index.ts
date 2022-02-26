@@ -1,5 +1,5 @@
 import Button from './components/button'
-import { Slider, Checkbox } from './components/inputs'
+import { Slider, Checkbox, Radio } from './components/inputs'
 import Sheet from './components/sheet'
 
 import './styles/index.css'
@@ -9,6 +9,7 @@ const components = {
   Button,
   Slider,
   Checkbox,
+  Radio,
   Sheet
 }
 
