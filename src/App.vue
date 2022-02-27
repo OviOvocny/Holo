@@ -5,6 +5,7 @@ const sliderVal = ref(35)
 const checkboxVal = ref(false)
 const loadingStuff = ref(false)
 const radioVal = ref('')
+const radioGroupVal = ref('')
 </script>
 
 <template>
@@ -140,6 +141,11 @@ const radioVal = ref('')
       >
         But not this
       </HRadio>
+      <h2>Radio group shorthand</h2>
+      <HRadioGroup
+        v-model="radioGroupVal"
+        :options="{1: 'One', 2: 'Two'}"
+      />
     </div>
   </div>
 </template>
