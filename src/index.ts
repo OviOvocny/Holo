@@ -22,6 +22,6 @@ function install(Vue: App): void {
 
 export default { install }
 
+export * from './components/inputs'
 export { default as Button } from './components/button'
-export { default as Slider } from './components/inputs/slider'
 export { default as Sheet } from './components/sheet'
