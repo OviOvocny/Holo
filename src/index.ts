@@ -1,5 +1,11 @@
 import Button from './components/button'
-import { Slider, Checkbox, Radio, RadioGroup } from './components/inputs'
+import {
+  Slider,
+  Checkbox,
+  Radio,
+  RadioGroup,
+  InputField
+} from './components/inputs'
 import Sheet from './components/sheet'
 
 import './styles/index.css'
@@ -11,6 +17,7 @@ const components = {
   Checkbox,
   Radio,
   RadioGroup,
+  InputField,
   Sheet
 }
 

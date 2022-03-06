@@ -6,6 +6,7 @@ const checkboxVal = ref(false)
 const loadingStuff = ref(false)
 const radioVal = ref('')
 const radioGroupVal = ref('')
+const inputVal = ref('')
 </script>
 
 <template>
@@ -145,6 +146,18 @@ const radioGroupVal = ref('')
       <HRadioGroup
         v-model="radioGroupVal"
         :options="{1: 'One', 2: 'Two'}"
+      />
+    </div>
+    <div class="inputfields">
+      <h1>Hi, input fields!</h1>
+      <HInputField label="Hello? This is a text field!" />
+      <HInputField
+        v-model="inputVal"
+        type="number"
+        label="Numbers good"
+        color="okay"
+        min="0"
+        max="10"
       />
     </div>
   </div>
