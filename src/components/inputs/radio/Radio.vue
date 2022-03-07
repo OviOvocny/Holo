@@ -9,7 +9,7 @@ export default {
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    modelValue: string | number
+    modelValue?: string | number
     value: string | number
     name?: string
     disabled?: boolean
@@ -17,6 +17,7 @@ const props = withDefaults(
     loading?: boolean
   }>(),
   {
+    modelValue: undefined,
     name: undefined,
     color: 'foreground'
   }

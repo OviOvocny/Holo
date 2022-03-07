@@ -31,7 +31,6 @@ const emit = defineEmits<{
 }>()
 
 function updateInput(val: string | number) {
-  console.log('Updated to' + val)
   emit('update:modelValue', val)
 }
 

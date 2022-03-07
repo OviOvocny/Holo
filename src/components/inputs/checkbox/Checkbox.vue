@@ -10,13 +10,14 @@ export default {
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    modelValue: boolean
+    modelValue?: boolean
     name?: string
     disabled?: boolean
     color?: string
     loading?: boolean
   }>(),
   {
+    modelValue: undefined,
     name: undefined,
     color: 'foreground'
   }
