@@ -5,11 +5,12 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import HoloWrapper from '@/framework/HoloWrapper.vue'
 import HoloTriggerEffect from '@/framework/HoloEffects/HoloTriggerEffect'
 import HoloRippleEffect from '@/framework/HoloEffects/HoloRippleEffect'
 import { normalizeCoordinates } from 'holocore/src/utils/normalizeCoordinates'
+import useInputValue from '@/hooks/useInputValue'
 
 const props = withDefaults(
   defineProps<{
@@ -35,6 +36,8 @@ const emit = defineEmits<{
   (e: 'update:modelValue', event: string | number): void
 }>()
 
+const val = useInputValue(emit, props)
+
 function updateInput(e: Event) {
   const target = e.currentTarget as HTMLInputElement
   val.value = target.value
@@ -42,15 +45,6 @@ function updateInput(e: Event) {
 
 const hoverLocation = ref<[number, number]>([0, 0])
 const clickLocation = ref<[number, number]>([0, 0])
-
-const internal = ref()
-const val = computed({
-  get: () => props.modelValue ?? internal.value,
-  set: (val) => {
-    internal.value = val
-    emit('update:modelValue', val)
-  }
-})
 
 function updateHover(e: MouseEvent) {
   if (props.disabled) return
