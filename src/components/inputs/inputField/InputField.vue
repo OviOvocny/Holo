@@ -5,12 +5,12 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import HoloWrapper from '@/framework/HoloWrapper.vue'
 import HoloTriggerEffect from '@/framework/HoloEffects/HoloTriggerEffect'
 import HoloRippleEffect from '@/framework/HoloEffects/HoloRippleEffect'
 import { normalizeCoordinates } from 'holocore/src/utils/normalizeCoordinates'
 import useInputValue from '@/hooks/useInputValue'
+import usePointerEffects from '@/hooks/usePointerEffects'
 
 const props = withDefaults(
   defineProps<{
@@ -43,27 +43,17 @@ function updateInput(e: Event) {
   val.value = target.value
 }
 
-const hoverLocation = ref<[number, number]>([0, 0])
-const clickLocation = ref<[number, number]>([0, 0])
+const { hoverLocation, clickLocation, setHoverFromEvent, setClickFromEvent } =
+  usePointerEffects()
 
 function updateHover(e: MouseEvent) {
   if (props.disabled) return
-  if (e.target instanceof HTMLElement) {
-    hoverLocation.value = normalizeCoordinates(
-      [e.offsetX, e.offsetY],
-      [e.target.offsetWidth, e.target.offsetHeight]
-    )
-  }
+  setHoverFromEvent(e)
 }
 
 function passClick(e: MouseEvent) {
   if (props.disabled) return
-  if (e.target instanceof HTMLElement) {
-    clickLocation.value = normalizeCoordinates(
-      [e.offsetX, e.offsetY],
-      [e.target.offsetWidth, e.target.offsetHeight]
-    )
-  }
+  setClickFromEvent(e)
 }
 
 function focusEffect() {
