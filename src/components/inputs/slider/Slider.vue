@@ -77,6 +77,7 @@ const gstop = computed(() => {
   border-color: hsl(var(--variable-color));
   appearance: none;
   width: 100%;
+  font-size: 0.875rem;
   height: 1em;
 }
 

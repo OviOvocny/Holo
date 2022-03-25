@@ -137,6 +137,7 @@ watch(
   position: relative;
   display: inline-flex;
   align-items: center;
+  margin-inline-end: 0.875em;
 }
 
 .holo-checkbox-element {

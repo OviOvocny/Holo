@@ -106,6 +106,7 @@ const checked = computed(() => props.modelValue === props.value)
   position: relative;
   display: inline-flex;
   align-items: center;
+  margin-inline-end: 0.875em;
 }
 
 .holo-radio-element {

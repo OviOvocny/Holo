@@ -90,6 +90,7 @@ function passClick(e: MouseEvent) {
   color: hsl(var(--readable-color));
   font-family: var(--text-font, var(--system-fonts-fallback));
   font-weight: 600;
+  font-size: 0.875em;
   border: 1.5px solid hsl(var(--variable-color));
   margin: 0;
   padding: 0.5em 1em;

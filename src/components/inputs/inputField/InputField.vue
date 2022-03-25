@@ -132,6 +132,7 @@ function focusEffect() {
   background: hsl(var(--variable-color) / 80%);
   color: hsl(var(--readable-color));
   font-family: var(--text-font, var(--system-fonts-fallback));
+  font-size: 0.9em;
   border: none;
   border-bottom: 1.5px solid hsl(var(--foreground));
   margin: 0;
@@ -190,7 +191,7 @@ function focusEffect() {
 
 .holo-input-field-label {
   position: absolute;
-  inset-block-end: 0;
+  inset-block-start: 2.7em;
   inset-inline-start: 0;
   font-size: 0.7em;
   font-weight: 700;
