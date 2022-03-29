@@ -4,7 +4,8 @@ import {
   Checkbox,
   Radio,
   RadioGroup,
-  InputField
+  InputField,
+  TextArea
 } from './components/inputs'
 import Sheet from './components/sheet'
 
@@ -18,6 +19,7 @@ const components = {
   Radio,
   RadioGroup,
   InputField,
+  TextArea,
   Sheet
 }
 

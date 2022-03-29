@@ -160,6 +160,10 @@ const inputVal = ref('')
         max="10"
       />
     </div>
+    <div class="textareas">
+      <h1>Hi, text areas!</h1>
+      <HTextArea label="Hi" :rows="4" />
+    </div>
   </div>
 </template>
 
