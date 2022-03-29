@@ -68,6 +68,13 @@ function focusEffect() {
       {'holo-input-field-labelled': label}
     ]"
   >
+    <label
+      v-if="label"
+      for="name"
+      class="holo-input-field-label"
+    >
+      {{ label }}
+    </label>
     <HoloWrapper
       :options="{ rows: 1 }"
       :color="color"
@@ -106,13 +113,6 @@ function focusEffect() {
         @focus="focusEffect"
       >
     </HoloWrapper>
-    <label
-      v-if="label"
-      for="name"
-      class="holo-input-field-label"
-    >
-      {{ label }}
-    </label>
   </span>
 </template>
 
@@ -124,7 +124,7 @@ function focusEffect() {
 }
 
 .holo-input-field-shell.holo-input-field-labelled {
-  padding-block-end: 1em;
+  padding-block-start: 1em;
 }
 
 .holo-input-field {
@@ -191,8 +191,9 @@ function focusEffect() {
 
 .holo-input-field-label {
   position: absolute;
-  inset-block-start: 2.7em;
+  inset-block-start: 0;
   inset-inline-start: 0;
+  height: 1.45em;
   font-size: 0.7em;
   font-weight: 700;
   background-color: hsl(var(--foreground));
@@ -204,6 +205,6 @@ function focusEffect() {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  clip-path: polygon(0 0, 100% 0, calc(100% - 1.25ch) 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - 1.25ch) 0, 100% 100%, 0 100%);
 }
 </style>
