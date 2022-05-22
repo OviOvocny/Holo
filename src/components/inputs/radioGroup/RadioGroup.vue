@@ -39,8 +39,8 @@ watch(selectedValue, updateInput)
 </script>
 
 <template>
-  <HRadio 
-    v-for="(label, value) in options" 
+  <HRadio
+    v-for="(label, value) in options"
     :key="value"
     v-model="selectedValue"
     :value="value"

@@ -1,16 +1,35 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+const isDark = ref(false)
+const systemDark = ref(true)
 const sliderVal = ref(35)
 const checkboxVal = ref(false)
 const loadingStuff = ref(false)
 const radioVal = ref('')
 const radioGroupVal = ref('')
-const inputVal = ref('')
+const inputVal = ref(5)
+const notifVisible = ref(false)
+const notifLongVisible = ref(false)
 </script>
 
 <template>
-  <div class="holo-root">
+  <HRoot
+    class="padded"
+    :dark-appearance="isDark"
+    :uses-system-appearance="systemDark"
+  >
+    <HCheckbox
+      v-model="systemDark"
+    >
+      Use dynamic system theme
+    </HCheckbox>
+    <HCheckbox
+      v-model="isDark"
+      :disabled="systemDark"
+    >
+      Dark appearance {{ systemDark ? '(Ignored when system theme is used)' : '' }}
+    </HCheckbox>
     <div id="buttons">
       <h1>Hi, button!</h1>
       <HButton>Hello. I am button.</HButton>
@@ -162,14 +181,41 @@ const inputVal = ref('')
     </div>
     <div class="textareas">
       <h1>Hi, text areas!</h1>
-      <HTextArea label="Hi" :rows="4" />
+      <HTextArea
+        label="Hi"
+        :rows="4"
+      />
     </div>
-  </div>
+    <div class="files">
+      <h1>Hi, file readers!</h1>
+      <HFile label="Hi, I eat files..." />
+    </div>
+    <div class="notifications">
+      <h1>Hi, notify me!</h1>
+      <HButton @click="notifVisible = true">
+        Show 2s
+      </HButton>
+      <HButton @click="notifLongVisible = true">
+        Show {{inputVal}}s
+      </HButton>
+      <HNotification
+        v-model="notifLongVisible"
+        :timeout="inputVal * 1000"
+        color="primary"
+      >
+        <template #title>
+          Title
+        </template>
+        Numbers good? {{ inputVal }}
+      </HNotification>
+      <HNotification v-model="notifVisible">
+        Bye after 2s
+      </HNotification>
+    </div>
+  </HRoot>
 </template>
 
 <style>
-@import "@/styles/variables.css";
-
 * {
   box-sizing: border-box;
 }
@@ -179,17 +225,12 @@ body {
   margin: 0;
 }
 
-.holo-root {
-  position: relative;
-  z-index: 0;
-  min-height: 100vh;
-  padding: 2em;
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-}
-
 h1 {
   color: hsl(var(--highlight));
+}
+
+.padded {
+  padding: 2em;
 }
 
 /* Component-specific styles */

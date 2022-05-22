@@ -89,6 +89,7 @@ watch(
       class="holo-checkbox-element"
       :value="modelValue"
       :disabled="disabled"
+      :checked="modelValue"
       v-bind="$attrs"
       @change="updateInput"
       @focus="focus"

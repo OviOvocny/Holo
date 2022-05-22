@@ -1,3 +1,4 @@
+import Root from './components/root'
 import Button from './components/button'
 import {
   Slider,
@@ -5,14 +6,17 @@ import {
   Radio,
   RadioGroup,
   InputField,
-  TextArea
+  TextArea,
+  File
 } from './components/inputs'
 import Sheet from './components/sheet'
+import Notification from './components/notification'
 
 import './styles/index.css'
 import { App } from 'vue'
 
 const components = {
+  Root,
   Button,
   Slider,
   Checkbox,
@@ -20,7 +24,9 @@ const components = {
   RadioGroup,
   InputField,
   TextArea,
-  Sheet
+  File,
+  Sheet,
+  Notification
 }
 
 function install(Vue: App): void {
