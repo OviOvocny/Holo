@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, provide, ref, watch } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -39,6 +39,8 @@ const themeName = computed(() => {
     : props.darkAppearance
   return dark ? props.themeDark : props.themeLight
 })
+
+provide('themeName', themeName)
 </script>
 
 <template>

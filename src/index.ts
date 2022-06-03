@@ -9,8 +9,8 @@ import {
   TextArea,
   File
 } from './components/inputs'
-import Sheet from './components/sheet'
 import Notification from './components/notification'
+import Alert from './components/alert'
 
 import './styles/index.css'
 import { App } from 'vue'
@@ -25,8 +25,8 @@ const components = {
   InputField,
   TextArea,
   File,
-  Sheet,
-  Notification
+  Notification,
+  Alert
 }
 
 function install(Vue: App): void {
@@ -40,4 +40,3 @@ export default { install }
 
 export * from './components/inputs'
 export { default as Button } from './components/button'
-export { default as Sheet } from './components/sheet'

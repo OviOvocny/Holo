@@ -1,8 +1,18 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+import {
+  ref,
+  onMounted,
+  onUnmounted,
+  watch,
+  inject,
+  ComputedRef,
+  nextTick
+} from 'vue'
 import Holo from 'holocore'
 import type { LtHoloOptions } from 'holocore/src/Holo'
 import getColor from '@/helpers/getColor'
+
+const theme = inject<ComputedRef<string>>('themeName')
 
 const props = withDefaults(
   defineProps<{
@@ -28,14 +38,18 @@ function createOptions(
   return options
 }
 
-onMounted(() => {
+async function createHolo() {
+  await nextTick()
   if (self.value) {
+    self.value.innerHTML = '' // fugly
     holo.value = new Holo(self.value, createOptions(props.options, props.color))
     if (props.disabled) {
       holo.value.t.pause()
     }
   }
-})
+}
+
+onMounted(createHolo)
 
 onUnmounted(() => {
   holo.value?.destroy()
@@ -47,6 +61,8 @@ watch(
     holo.value?.reconfigure(createOptions(options ?? {}, props.color))
   }
 )
+
+watch([() => props.color, theme], createHolo)
 
 watch(
   () => props.disabled,

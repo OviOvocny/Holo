@@ -18,7 +18,7 @@ const notifLongVisible = ref(false)
     class="padded"
     :dark-appearance="isDark"
     :uses-system-appearance="systemDark"
-  >
+  >    
     <HCheckbox
       v-model="systemDark"
     >
@@ -30,6 +30,13 @@ const notifLongVisible = ref(false)
     >
       Dark appearance {{ systemDark ? '(Ignored when system theme is used)' : '' }}
     </HCheckbox>
+
+    <div>
+      <HAlert color="caution">
+        Hello I am important!
+      </HAlert>
+    </div>
+
     <div id="buttons">
       <h1>Hi, button!</h1>
       <HButton>Hello. I am button.</HButton>
