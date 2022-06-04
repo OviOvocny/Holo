@@ -5,14 +5,11 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
-
 import HoloWrapper from '@/framework/HoloWrapper.vue'
 import HoloRainEffect from '@/framework/HoloEffects/HoloRainEffect'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
-    modelValue: boolean
     color?: string
     hologram?: boolean
   }>(),
@@ -33,7 +30,7 @@ const props = withDefaults(
       }
     }"
     :color="color"
-    :class="['holo-alert-wrap']"
+    :class="['holo-alert-wrap', 'clipped-corner']"
   >
     <!-- Effect slots -->
     <template #effects="{ renderer }">
@@ -44,7 +41,7 @@ const props = withDefaults(
       />
     </template>
     <!-- Component structure -->
-    <div 
+    <div
       class="holo-alert"
       :class="[`holo-variable-color-${color}`]"
     >
@@ -53,12 +50,37 @@ const props = withDefaults(
   </HoloWrapper>
 </template>
 
-<style scoped>
+<style>
+.holo-alert-wrap {
+  margin-block: 0.5em;
+}
+
 .holo-alert {
-  border-inline-start: 3px solid hsl(var(--variable-color));
+  --corner-clip: 0.5em;
+  --border-width: 3px;
+
   padding: 0.5em 1em;
-  background: hsl(var(--variable-color) / 70%);
-  color: hsl(var(--readable-color));
-  font-family: var(--text-font, var(--system-fonts-fallback));
+  background: hsl(var(--variable-color) / 50%);
+  background-image: linear-gradient(to top, hsl(var(--background) / 50%), hsl(var(--background) / 50%));
+  color: hsl(var(--foreground));
+}
+
+.holo-alert::before {
+  content: "";
+  background: hsl(var(--variable-color));
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  height: 100%;
+  width: 0.5em;
+  clip-path:
+    polygon(
+      0 100%,
+      var(--border-width) 100%,
+      var(--border-width) var(--corner-clip),
+      100% var(--border-width),
+      100% 0,
+      0 0
+    );
 }
 </style>

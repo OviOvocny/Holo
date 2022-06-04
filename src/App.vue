@@ -18,7 +18,7 @@ const notifLongVisible = ref(false)
     class="padded"
     :dark-appearance="isDark"
     :uses-system-appearance="systemDark"
-  >    
+  >
     <HCheckbox
       v-model="systemDark"
     >
@@ -33,7 +33,11 @@ const notifLongVisible = ref(false)
 
     <div>
       <HAlert color="caution">
-        Hello I am important!
+        Hello I am important! Pay attention to me.
+        <br>
+        LISTEN!
+        <br><br>This is an alert, ok?
+        <HButton>Oh ok</HButton>
       </HAlert>
     </div>
 
