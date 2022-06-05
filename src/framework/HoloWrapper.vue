@@ -96,6 +96,7 @@ watch(
 .holo-wrapper {
   position: relative;
   display: inline-block;
+  z-index: 0;
 }
 
 .holo-render {
