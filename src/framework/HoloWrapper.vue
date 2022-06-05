@@ -13,6 +13,7 @@ import type { LtHoloOptions } from 'holocore/src/Holo'
 import getColor from '@/helpers/getColor'
 
 const theme = inject<ComputedRef<string>>('themeName')
+const disabledGlobally = inject('disableHolograms') as ComputedRef<boolean>
 
 const props = withDefaults(
   defineProps<{
@@ -39,9 +40,10 @@ function createOptions(
 }
 
 async function createHolo() {
+  if (disabledGlobally.value) return
   await nextTick()
+  destroyHolo()
   if (self.value) {
-    self.value.innerHTML = '' // fugly
     holo.value = new Holo(self.value, createOptions(props.options, props.color))
     if (props.disabled) {
       holo.value.t.pause()
@@ -49,11 +51,15 @@ async function createHolo() {
   }
 }
 
-onMounted(createHolo)
-
-onUnmounted(() => {
+function destroyHolo() {
   holo.value?.destroy()
-})
+  if (self.value) {
+    self.value.innerHTML = '' // fugly
+  }
+}
+
+onMounted(createHolo)
+onUnmounted(destroyHolo)
 
 watch(
   () => props.options,
@@ -74,6 +80,14 @@ watch(
     }
   }
 )
+
+watch(disabledGlobally, (disabled) => {
+  if (disabled) {
+    destroyHolo()
+  } else {
+    createHolo()
+  }
+})
 </script>
 
 <template>

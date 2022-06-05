@@ -3,6 +3,7 @@ import { ref } from 'vue'
 
 const isDark = ref(false)
 const systemDark = ref(true)
+const noHolo = ref(false)
 const sliderVal = ref(35)
 const checkboxVal = ref(false)
 const loadingStuff = ref(false)
@@ -18,6 +19,7 @@ const notifLongVisible = ref(false)
     class="padded"
     :dark-appearance="isDark"
     :uses-system-appearance="systemDark"
+    :no-holograms="noHolo"
   >
     <HCheckbox
       v-model="systemDark"
@@ -28,7 +30,12 @@ const notifLongVisible = ref(false)
       v-model="isDark"
       :disabled="systemDark"
     >
-      Dark appearance {{ systemDark ? '(Ignored when system theme is used)' : '' }}
+      Dark appearance
+    </HCheckbox>
+    <HCheckbox
+      v-model="noHolo"
+    >
+      Disable holograms
     </HCheckbox>
 
     <div>

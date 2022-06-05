@@ -13,6 +13,7 @@ const props = withDefaults(
     themeDark?: string
     darkAppearance?: boolean
     usesSystemAppearance?: boolean
+    noHolograms?: boolean
   }>(),
   {
     themeLight: 'holographic-light',
@@ -40,7 +41,10 @@ const themeName = computed(() => {
   return dark ? props.themeDark : props.themeLight
 })
 
+const disableHolograms = computed(() => props.noHolograms)
+
 provide('themeName', themeName)
+provide('disableHolograms', disableHolograms)
 </script>
 
 <template>
