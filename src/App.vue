@@ -21,6 +21,13 @@ const notifLongVisible = ref(false)
     :uses-system-appearance="systemDark"
     :no-holograms="noHolo"
   >
+    <HAGrid
+      template="auto / 1fr 1fr 100px"
+    >
+      <HArea area="1 / 1 / 2 / 3">
+        TEST
+      </HArea>
+    </HAGrid>
     <HCheckbox
       v-model="systemDark"
     >

@@ -1,4 +1,5 @@
 import Root from './components/root'
+import { AGrid, Area } from './components/grid'
 import Button from './components/button'
 import {
   Slider,
@@ -17,6 +18,8 @@ import { App } from 'vue'
 
 const components = {
   Root,
+  AGrid,
+  Area,
   Button,
   Slider,
   Checkbox,
