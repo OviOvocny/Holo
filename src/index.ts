@@ -1,6 +1,7 @@
 import Root from './components/root'
 import { AGrid, Area } from './components/grid'
 import List from './components/list'
+import ListItem from './components/listitem'
 import Button from './components/button'
 import {
   Slider,
@@ -22,6 +23,7 @@ const components = {
   AGrid,
   Area,
   List,
+  ListItem,
   Button,
   Slider,
   Checkbox,

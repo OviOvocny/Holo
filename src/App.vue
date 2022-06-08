@@ -31,12 +31,13 @@ const notifLongVisible = ref(false)
             <HButton>?</HButton>
             <HButton>?</HButton>
           </template>
-          <li>a</li>
-          <li>b</li>
-          <li>c</li>
+          <HListItem><span>a</span></HListItem>
+          <HListItem>b</HListItem>
+          <HListItem>c</HListItem>
         </HList>
       </HArea>
     </HAGrid>
+    <br>
     <HCheckbox
       v-model="systemDark"
     >
@@ -65,7 +66,7 @@ const notifLongVisible = ref(false)
     </div>
 
     <div id="buttons">
-      <h1>Hi, button!</h1>
+      <h1>button</h1>
       <HButton>Hello. I am button.</HButton>
       <HButton color="okay">
         I am okay button.
@@ -125,7 +126,7 @@ const notifLongVisible = ref(false)
       </HButton>
     </div>
     <div id="sliders">
-      <h1>Hi, Slider!</h1>
+      <h1>Slider</h1>
       <HSlider
         v-model="sliderVal"
         color="highlight"
@@ -151,7 +152,7 @@ const notifLongVisible = ref(false)
       />
     </div>
     <div id="checkboxes">
-      <h1>Hi, checkbox!</h1>
+      <h1>checkbox</h1>
       <HCheckbox
         v-model="checkboxVal"
         color="okay"
@@ -173,7 +174,7 @@ const notifLongVisible = ref(false)
       </HCheckbox>
     </div>
     <div id="radios">
-      <h1>Hi, radio!</h1>
+      <h1>radio</h1>
       <HRadio
         v-model="radioVal"
         value="r1"
@@ -202,7 +203,7 @@ const notifLongVisible = ref(false)
       />
     </div>
     <div class="inputfields">
-      <h1>Hi, input fields!</h1>
+      <h1>input fields</h1>
       <HInputField label="Hello? This is a text field!" />
       <HInputField
         v-model="inputVal"
@@ -214,18 +215,18 @@ const notifLongVisible = ref(false)
       />
     </div>
     <div class="textareas">
-      <h1>Hi, text areas!</h1>
+      <h1>text areas</h1>
       <HTextArea
         label="Hi"
         :rows="4"
       />
     </div>
     <div class="files">
-      <h1>Hi, file readers!</h1>
-      <HFile label="Hi, I eat files..." />
+      <h1>file readers</h1>
+      <HFile label="I eat files..." />
     </div>
     <div class="notifications">
-      <h1>Hi, notify me!</h1>
+      <h1>notifications</h1>
       <HButton @click="notifVisible = true">
         Show 2s
       </HButton>
