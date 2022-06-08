@@ -25,7 +25,16 @@ const notifLongVisible = ref(false)
       template="auto / 1fr 1fr 100px"
     >
       <HArea area="1 / 1 / 2 / 3">
-        TEST
+        <HList label="Test">
+          <template #shortcuts>
+            <HButton>?</HButton>
+            <HButton>?</HButton>
+            <HButton>?</HButton>
+          </template>
+          <li>a</li>
+          <li>b</li>
+          <li>c</li>
+        </HList>
       </HArea>
     </HAGrid>
     <HCheckbox
@@ -221,7 +230,7 @@ const notifLongVisible = ref(false)
         Show 2s
       </HButton>
       <HButton @click="notifLongVisible = true">
-        Show {{inputVal}}s
+        Show {{ inputVal }}s
       </HButton>
       <HNotification
         v-model="notifLongVisible"
