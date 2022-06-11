@@ -25,15 +25,21 @@ const notifLongVisible = ref(false)
       template="auto / 1fr 1fr 100px"
     >
       <HArea area="1 / 1 / 2 / 3">
-        <HList label="Test">
+        <HList label="Test List">
           <template #shortcuts>
             <HButton>?</HButton>
             <HButton>?</HButton>
             <HButton>?</HButton>
           </template>
-          <HListItem><span>a</span></HListItem>
+          <HListItem>
+            <template #symbol>
+              🤨
+            </template>
+            <span>{{ inputVal }}</span>
+          </HListItem>
           <HListItem>b</HListItem>
           <HListItem>c</HListItem>
+          <HListItem v-if="noHolo">LOL</HListItem>
         </HList>
       </HArea>
     </HAGrid>

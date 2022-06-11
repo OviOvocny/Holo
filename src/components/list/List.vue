@@ -5,11 +5,12 @@ export default {
 </script>
 
 <script setup lang="ts">
-import StaggeredListTransition from '@/framework/StaggeredListTransition.vue'
+import { provide } from 'vue'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     label?: string
+    collapsed?: boolean
     stagger?: number
   }>(),
   {
@@ -17,6 +18,8 @@ withDefaults(
     stagger: 50
   }
 )
+
+provide<number>('stagger', props.stagger)
 </script>
 
 <template>
@@ -36,10 +39,11 @@ withDefaults(
       <slot name="shortcuts" />
     </div>
   </div>
-  <ul class="holo-list">
-    <StaggeredListTransition :stagger="stagger">
-      <slot />
-    </StaggeredListTransition>
+  <ul
+    v-show="!collapsed"
+    class="holo-list"
+  >
+    <slot />
   </ul>
 </template>
 
