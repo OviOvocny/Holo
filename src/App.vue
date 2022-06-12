@@ -21,6 +21,11 @@ const notifLongVisible = ref(false)
     :uses-system-appearance="systemDark"
     :no-holograms="noHolo"
   >
+    <HMeter
+      :colors="['okay', 'caution', 'destructive']"
+      :steps="10"
+      :value="inputVal"
+    />
     <HAGrid
       template="auto / 1fr 1fr 100px"
     >

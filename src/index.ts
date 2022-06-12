@@ -15,6 +15,7 @@ import {
 import Notification from './components/notification'
 import Alert from './components/alert'
 import Badge from './components/badge'
+import Meter from './components/meter'
 
 import './styles/index.css'
 import { App } from 'vue'
@@ -35,7 +36,8 @@ const components = {
   File,
   Notification,
   Alert,
-  Badge
+  Badge,
+  Meter
 }
 
 function install(Vue: App): void {
