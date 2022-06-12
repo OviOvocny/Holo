@@ -37,14 +37,11 @@ const notifLongVisible = ref(false)
             </template>
             <span>{{ inputVal }}</span>
             <template #decoration>
-              0/10
+              <HBadge>2 / X</HBadge>
             </template>
           </HListItem>
           <HListItem>b</HListItem>
           <HListItem>
-            <template #symbol>
-              🤨
-            </template>
             <HList label="Nested">
               <HListItem>1</HListItem>
               <HListItem>2</HListItem>

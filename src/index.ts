@@ -14,6 +14,7 @@ import {
 } from './components/inputs'
 import Notification from './components/notification'
 import Alert from './components/alert'
+import Badge from './components/badge'
 
 import './styles/index.css'
 import { App } from 'vue'
@@ -33,7 +34,8 @@ const components = {
   TextArea,
   File,
   Notification,
-  Alert
+  Alert,
+  Badge
 }
 
 function install(Vue: App): void {
