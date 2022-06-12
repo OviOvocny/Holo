@@ -40,19 +40,27 @@ onUpdated(addIndex)
     ref="self"
     class="holo-list-item"
   >
-    <div
-      v-if="$slots.symbol"
-      class="holo-list-symbol"
-    >
-      <slot name="symbol" />
+    <div class="holo-list-main">
+      <div
+        v-if="$slots.symbol"
+        class="holo-list-symbol"
+      >
+        <slot name="symbol" />
+      </div>
+      <div class="holo-list-content">
+        <slot />
+      </div>
     </div>
-    <slot />
+    <div class="holo-list-decoration">
+      <slot name="decoration" />
+    </div>
   </li>
 </template>
 
-<style scoped>
+<style>
 .holo-list-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   margin-block: 0.15em;
 
@@ -60,6 +68,11 @@ onUpdated(addIndex)
   opacity: 0;
   animation: reveal 0.15s var(--stagger-transition-delay) var(--ease-blink);
   animation-fill-mode: forwards;
+}
+
+.holo-list-main {
+  display: flex;
+  align-items: flex-start;
 }
 
 .holo-list-symbol {
@@ -70,5 +83,11 @@ onUpdated(addIndex)
   to {
     opacity: 1;
   }
+}
+
+/* Nest indent */
+.holo-list-content .holo-list,
+.holo-list-content .holo-list-header {
+  margin-inline-start: 1em;
 }
 </style>
