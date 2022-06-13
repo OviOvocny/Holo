@@ -18,7 +18,7 @@ import Badge from './components/badge'
 import Meter from './components/meter'
 
 import './styles/index.css'
-import { App } from 'vue'
+import { App, Plugin } from 'vue'
 
 const components = {
   Root,
@@ -40,14 +40,17 @@ const components = {
   Meter
 }
 
-function install(Vue: App): void {
-  for (const component in components) {
-    // @ts-expect-error implicit any
-    Vue.component(components[component].name, components[component])
+const plugin: Plugin = {
+  install: (Vue: App): void => {
+    for (const component in components) {
+      // @ts-expect-error implicit any
+      Vue.component(components[component].name, components[component])
+    }
   }
 }
 
-export default { install }
+export default plugin
 
-export * from './components/inputs'
-export { default as Button } from './components/button'
+// @TODO export individual components
+// export * from './components/inputs'
+// export { default as Button } from './components/button'

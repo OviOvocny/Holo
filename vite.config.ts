@@ -10,6 +10,7 @@ const config: UserConfig = {
   },
   plugins: [vue()],
   build: {
+    minify: 'esbuild',
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'Holo'
