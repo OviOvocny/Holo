@@ -5,14 +5,38 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject, onMounted, onUpdated, ref } from 'vue'
+import { computed, inject, onMounted, onUpdated, ref, useAttrs } from 'vue'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
+    color?: string
     disabled?: boolean
+    href?: string | object
+    to?: string | object
   }>(),
-  {}
+  {
+    color: 'foreground',
+    href: undefined,
+    to: undefined
+  }
 )
+
+const isInteractive = computed(() => {
+  const attrs = useAttrs()
+  const clickable = Object.keys(attrs).includes('onClick')
+  const linking = props.href || props.to
+  return clickable || linking
+})
+
+const elementType = computed(() => {
+  if (props.href) {
+    return 'a'
+  } else if (props.to) {
+    return 'router-link'
+  } else {
+    return 'div'
+  }
+})
 
 const stagger = inject<number>('stagger') ?? 0
 
@@ -39,19 +63,26 @@ onUpdated(addIndex)
   <li
     ref="self"
     class="holo-list-item"
+    :class="[`holo-variable-color-${color}`]"
   >
-    <div class="holo-list-main">
+    <component
+      :is="elementType"
+      :to="to"
+      :href="href"
+      class="holo-list-item-main"
+      :class="{ 'holo-list-item-interactive': isInteractive }"
+    >
       <div
         v-if="$slots.symbol"
-        class="holo-list-symbol"
+        class="holo-list-item-symbol"
       >
         <slot name="symbol" />
       </div>
-      <div class="holo-list-content">
+      <div class="holo-list-item-content">
         <slot />
       </div>
-    </div>
-    <div class="holo-list-decoration">
+    </component>
+    <div class="holo-list-item-decoration">
       <slot name="decoration" />
     </div>
   </li>
@@ -62,7 +93,7 @@ onUpdated(addIndex)
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-block: 0.15em;
+  margin-block-end: 0.15em;
 
   /* reveal animation */
   opacity: 0;
@@ -70,12 +101,24 @@ onUpdated(addIndex)
   animation-fill-mode: forwards;
 }
 
-.holo-list-main {
+.holo-list-item-main {
   display: flex;
+  flex-grow: 1;
   align-items: flex-start;
+  padding: 0.15em 0.5em;
+  color: hsl(var(--foreground));
+  text-decoration: none;
+  transition: background-color 0.1s;
 }
 
-.holo-list-symbol {
+.holo-list-item-interactive { cursor: pointer; }
+.holo-list-item-interactive:disabled { cursor: not-allowed; }
+
+.holo-list-item-interactive:hover {
+  background-color: hsl(var(--variable-color) / 40%);
+}
+
+.holo-list-item-symbol {
   margin-inline-end: 0.25em;
 }
 
@@ -86,8 +129,8 @@ onUpdated(addIndex)
 }
 
 /* Nest indent */
-.holo-list-content .holo-list,
-.holo-list-content .holo-list-header {
+.holo-list-item-content .holo-list,
+.holo-list-item-content .holo-list-item-header {
   margin-inline-start: 1em;
 }
 </style>

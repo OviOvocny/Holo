@@ -45,7 +45,9 @@ const notifLongVisible = ref(false)
               <HBadge>2 / X</HBadge>
             </template>
           </HListItem>
-          <HListItem>b</HListItem>
+          <HListItem href="#">
+            link
+          </HListItem>
           <HListItem>
             <HList label="Nested">
               <HListItem>1</HListItem>
