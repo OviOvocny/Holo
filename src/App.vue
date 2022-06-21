@@ -5,6 +5,7 @@ const isDark = ref(false)
 const systemDark = ref(true)
 const noHolo = ref(false)
 const sliderVal = ref(35)
+const rangeSliderVal = ref([35, 65])
 const checkboxVal = ref(false)
 const loadingStuff = ref(false)
 const radioVal = ref('')
@@ -173,6 +174,15 @@ const notifLongVisible = ref(false)
         no-fill
         color="primary"
         max="69"
+      />
+      <HRangeSlider
+        v-model="rangeSliderVal"
+        color="caution"
+      />
+      <HRangeSlider
+        v-model="rangeSliderVal"
+        thin
+        color="okay"
       />
     </div>
     <div id="checkboxes">

@@ -5,6 +5,7 @@ import ListItem from './components/listitem'
 import Button from './components/button'
 import {
   Slider,
+  RangeSlider,
   Checkbox,
   Radio,
   RadioGroup,
@@ -28,6 +29,7 @@ const components = {
   ListItem,
   Button,
   Slider,
+  RangeSlider,
   Checkbox,
   Radio,
   RadioGroup,
