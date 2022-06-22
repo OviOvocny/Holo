@@ -1,6 +1,6 @@
 {
   "name": "holo-vue",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://altarsystems.com/",
   "description": "Holo is a Vue 3 UI library inspired by over-the-top sci-fi eyecandy (yes, really)",
   "author": {
@@ -8,17 +8,17 @@
     "email": "me@ovi.moe"
   },
   "files": ["dist"],
-  "main": "./dist/holo.umd.js",
-  "module": "./dist/holo.es.js",
+  "main": "./dist/holo-vue.umd.js",
+  "module": "./dist/holo-vue.es.js",
   "typings": "./dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/holo.es.js",
-      "require": "./dist/holo.umd.js"
+      "import": "./dist/holo-vue.es.js",
+      "require": "./dist/holo-vue.umd.js"
     },
     "./dist/style.css": "./dist/style.css"
   },
-  "unpkg": "dist/holo.umd.js",
+  "unpkg": "dist/holo-vue.umd.js",
   "private": false,
   "license": "MIT",
   "bugs": "",
