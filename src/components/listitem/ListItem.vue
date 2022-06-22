@@ -95,10 +95,11 @@ onUpdated(addIndex)
   align-items: center;
   margin-block-end: 0.15em;
 
-  /* reveal animation */
-  opacity: 0;
+  /* reveal animation @TODO better */
+
+  /* opacity: 0;
   animation: reveal 0.15s var(--stagger-transition-delay) var(--ease-blink);
-  animation-fill-mode: forwards;
+  animation-fill-mode: forwards; */
 }
 
 .holo-list-item-main {
