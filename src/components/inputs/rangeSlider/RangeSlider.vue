@@ -44,7 +44,7 @@ const rangeStart = computed({
   get() {
     return internalRange.start
   },
-  set(value) {
+  set(value: number) {
     const val = typeof value === 'string' ? parseFloat(value) : value
     if (val > internalRange.end) {
       internalRange.end = val
@@ -58,7 +58,7 @@ const rangeEnd = computed({
   get() {
     return internalRange.end
   },
-  set(value) {
+  set(value: number) {
     const val = typeof value === 'string' ? parseFloat(value) : value
     if (val < internalRange.start) {
       internalRange.start = val
