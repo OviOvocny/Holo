@@ -42,6 +42,7 @@ provide<number>('stagger', props.stagger)
   <ul
     v-show="!collapsed"
     class="holo-list"
+    v-bind="$attrs"
   >
     <slot />
   </ul>

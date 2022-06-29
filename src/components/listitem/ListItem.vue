@@ -71,6 +71,7 @@ onUpdated(addIndex)
       :href="href"
       class="holo-list-item-main"
       :class="{ 'holo-list-item-interactive': isInteractive }"
+      v-bind="$attrs"
     >
       <div
         v-if="$slots.symbol"
@@ -105,7 +106,7 @@ onUpdated(addIndex)
 .holo-list-item-main {
   display: flex;
   flex-grow: 1;
-  align-items: flex-start;
+  align-items: center;
   padding: 0.15em 0.5em;
   color: hsl(var(--foreground));
   text-decoration: none;
@@ -117,6 +118,11 @@ onUpdated(addIndex)
 
 .holo-list-item-interactive:hover {
   background-color: hsl(var(--variable-color) / 40%);
+}
+
+.holo-list-item-interactive.router-link-active {
+  background-color: hsl(var(--variable-color));
+  color: hsl(var(--readable-color));
 }
 
 .holo-list-item-symbol {

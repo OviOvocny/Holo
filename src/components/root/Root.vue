@@ -21,11 +21,15 @@ const props = withDefaults(
   }
 )
 
-const mql = window.matchMedia('(prefers-color-scheme: dark)')
-const systemDark = ref(mql.matches)
-mql.addEventListener('change', (e: MediaQueryListEvent) => {
-  systemDark.value = e.matches
-})
+let systemDark = ref(false)
+let mql = { matches: false } as MediaQueryList
+if (typeof window !== 'undefined') {
+  mql = window.matchMedia('(prefers-color-scheme: dark)')
+  systemDark = ref(mql.matches)
+  mql.addEventListener('change', (e: MediaQueryListEvent) => {
+    systemDark.value = e.matches
+  })
+}
 
 watch(
   () => props.usesSystemAppearance,

@@ -12,9 +12,19 @@ import usePointerEffects from '@/hooks/usePointerEffects'
 
 const props = withDefaults(
   defineProps<{
+    /** Color of the button. */
     color?: string
+    /** Whether the button is disabled. */
     disabled?: boolean
+    /**
+     * Whether the button is hollow.
+     * This removes background color.
+     */
     hollow?: boolean
+    /**
+     * Whether the button is borderless.
+     * This removes border.
+     */
     borderless?: boolean
   }>(),
   {
@@ -23,6 +33,9 @@ const props = withDefaults(
 )
 
 const emit = defineEmits<{
+  /**
+   * Emitted when the button is clicked.
+   */
   (e: 'click', event: MouseEvent): void
 }>()
 
@@ -75,6 +88,7 @@ function passClick(e: MouseEvent) {
       @mousemove="updateHover"
       @click="passClick"
     >
+      <!--+ Slot inside the button body -->
       <slot />
     </button>
   </HoloWrapper>

@@ -20,6 +20,7 @@ const props = withDefaults(
     options?: Partial<LtHoloOptions>
     color?: string
     disabled?: boolean
+    block?: boolean
   }>(),
   {
     options: () => ({}),
@@ -35,7 +36,7 @@ function createOptions(
   color: string
 ): Partial<LtHoloOptions> {
   const rgb = getColor(color)
-  options.color = { rgb }
+  options.color = { rgb, ...options.color }
   return options
 }
 
@@ -95,7 +96,7 @@ watch(disabledGlobally, (disabled) => {
     name="effects"
     :renderer="holo"
   />
-  <div :class="['holo-wrapper', $attrs.class]">
+  <div :class="['holo-wrapper', $attrs.class, { 'holo-wrapper-block': block }]">
     <div
       ref="self"
       class="holo-render"
@@ -111,6 +112,10 @@ watch(disabledGlobally, (disabled) => {
   position: relative;
   display: inline-block;
   z-index: 0;
+}
+
+.holo-wrapper-block {
+  display: block;
 }
 
 .holo-render {

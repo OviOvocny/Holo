@@ -1,3 +1,15 @@
+.holo-root .text-font {
+  font-family: var(--text-font, var(--system-fonts-fallback));
+}
+
+.holo-root .mono-font {
+  font-family: var(--mono-font, var(--system-fonts-fallback));
+}
+
+.holo-root .display-font {
+  font-family: var(--display-font, var(--system-fonts-fallback));
+}
+
 :focus {
   outline: none;
 }

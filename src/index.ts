@@ -52,6 +52,7 @@ const plugin: Plugin = {
 }
 
 export default plugin
+export * from './framework'
 
 // @TODO export individual components
 // export * from './components/inputs'
