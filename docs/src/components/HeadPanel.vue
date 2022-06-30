@@ -2,23 +2,27 @@
 import { HoloWrapper, HoloRainEffect } from '@/framework'
 import { kebab } from '@docs/common/utils'
 import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 
 const props = withDefaults(
   defineProps<{
     name: string
-    type?: string
+    type?: string | undefined
     color?: string | undefined
     icon?: string | undefined
   }>(),
   {
-    type: 'component',
+    type: undefined,
     color: undefined,
     icon: undefined
   }
 )
 
-const dcolor = computed(() => props.color ?? props.type)
-const typeC = computed(() => props.type === 'component')
+const route = useRoute()
+// set dtype to current route meta section if type prop is undefined
+const dtype = computed(() => props.type ?? route.meta?.section ?? 'fallback')
+const dcolor = computed(() => props.color ?? dtype.value)
+const typeC = computed(() => dtype.value === 'component')
 
 const kebabName = computed(() => kebab(props.name))
 </script>
@@ -52,7 +56,7 @@ const kebabName = computed(() => kebab(props.name))
       :class="[`holo-variable-color-${dcolor}`]"
     >
       <Icon
-        :name="icon ?? `${type}-${kebabName}`"
+        :name="icon ?? `${dtype}-${kebabName}`"
         :color="dcolor"
         class="hdoc-head-icon"
       />
