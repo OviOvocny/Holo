@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ComponentEvent } from '@docs/types/ComponentDocumentation'
+import { interpolateContent } from '@docs/common/utils'
 
 defineProps<{
   data: ComponentEvent
@@ -15,7 +16,7 @@ defineProps<{
       <span class="payload foreground-muted">&nbsp;(e:&thinsp;<span class="payload-type">{{ data.payload }}</span>)</span>
     </div>
     <div class="hdoc-emit-description">
-      {{ data.description }}
+      <DynamicLinker :content="interpolateContent(data.description)" />
     </div>
   </div>
 </template>

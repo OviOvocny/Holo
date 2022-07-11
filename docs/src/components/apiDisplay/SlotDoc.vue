@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ComponentSlot } from '@docs/types/ComponentDocumentation'
+import { interpolateContent } from '@docs/common/utils'
 
 defineProps<{
   data: ComponentSlot
@@ -14,7 +15,7 @@ defineProps<{
       </span>
     </div>
     <div class="hdoc-slot-description">
-      {{ data.description }}
+      <DynamicLinker :content="interpolateContent(data.description ?? '')" />
     </div>
   </div>
 </template>

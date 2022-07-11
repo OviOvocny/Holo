@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ComponentProp } from '@docs/types/ComponentDocumentation'
+import { interpolateContent } from '@docs/common/utils'
 
 defineProps<{
   data: ComponentProp
@@ -26,7 +27,7 @@ defineProps<{
       ><span class="foreground-muted">&thinsp;=&thinsp;</span>{{ data.default }}</span>
     </div>
     <div class="hdoc-prop-description">
-      {{ data.description }}
+      <DynamicLinker :content="interpolateContent(data.description)" />
     </div>
   </div>
 </template>
