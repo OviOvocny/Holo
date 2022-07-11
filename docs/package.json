@@ -13,10 +13,10 @@
   "dependencies": {
     "@vueuse/core": "^8.7.5",
     "@vueuse/head": "^0.7.6",
-    "holo-vue": "^0.1.2",
+    "colord": "^2.9.2",
+    "holocore": "^0.1.0",
     "normalize.css": "^8.0.1",
     "vue": "^3.2.37",
-    "vue-i18n": "^9.1.10",
     "vue-router": "^4.0.16"
   },
   "devDependencies": {
