@@ -24,8 +24,8 @@ useHead({
     <AGrid
       class="main-grid"
       template="
-      '  nav                  content' auto
-       / minmax(auto, 350px)  1fr"
+      '  nav content' auto
+       / minmax(max-content, 280px)  1fr"
     >
       <Area area="nav">
         <Navigation />

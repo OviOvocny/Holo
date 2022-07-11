@@ -30,8 +30,8 @@ export default defineConfig(({ mode }) => {
       Vue(),
       Components({
         dirs: [
-          path.resolve(__dirname, './src/components'),
-          path.resolve(__dirname, '../src/components')
+          path.resolve(__dirname, './src/components'), // Docs components
+          path.resolve(__dirname, '../src/components') // Holo components
         ]
       }),
       Pages(),
