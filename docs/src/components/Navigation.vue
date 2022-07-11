@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import routes from '~pages'
 import { kebab } from '@docs/common/utils'
-import { sections } from '@docs/common/data'
+import { sections } from '@docs/common/contentdata.json'
 import { useRoute, RouteRecordRaw } from 'vue-router'
 import { computed } from 'vue'
 

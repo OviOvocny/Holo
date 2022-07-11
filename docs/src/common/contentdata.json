@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "setup": "Setup",
+    "theme": "Theming",
+    "component": "Components"
+  },
+  "descriptions": {
+    "color":
+      "Color of the component. Accepts any variable color name. See [Colors] to learn more.",
+    "disabled":
+      "Disables the form control, same as HTML's disabled attribute."
+  }
+}
