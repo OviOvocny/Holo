@@ -12,9 +12,9 @@ import usePointerEffects from '@/hooks/usePointerEffects'
 
 const props = withDefaults(
   defineProps<{
-    /** Color of the button. */
+    /** [[color]] */
     color?: string
-    /** Whether the button is disabled. */
+    /** [[disabled]] */
     disabled?: boolean
     /**
      * Whether the button is hollow.
