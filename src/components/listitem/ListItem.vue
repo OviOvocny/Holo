@@ -129,6 +129,11 @@ onUpdated(addIndex)
   margin-inline-end: 0.25em;
 }
 
+.holo-list-item a,
+.holo-list-item a:hover {
+  color: inherit;
+}
+
 @keyframes reveal {
   to {
     opacity: 1;

@@ -21,8 +21,17 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.holo-root h1,
-.holo-root h2 {
+h1,
+h2 {
   font-family: var(--display-font, var(--system-fonts-fallback));
   text-transform: uppercase;
+}
+
+a,
+a:visited {
+  color: hsl(var(--accent));
+}
+
+a:hover {
+  color: hsl(var(--accent) / 90%);
 }
