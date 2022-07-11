@@ -4,14 +4,9 @@ import routes from '~pages'
 
 <template>
   <div>
-    <List>
-      <ListItem
-        v-for="route in routes"
-        :key="route.name"
-        :to="route.path"
-      >
-        {{ route.name }}
-      </ListItem>
-    </List>
+    <h1>Holo</h1>
+    <p>
+      This documentation is still being built. Please come back later.
+    </p>
   </div>
 </template>

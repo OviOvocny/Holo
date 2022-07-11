@@ -41,6 +41,7 @@ useHead({
 .holo-root[data-holo-theme="holographic-dark"] {
   --component: 21deg 85% 60%;
   --theme: 151deg 70% 60%;
+  --setup: 210deg 70% 60%;
 
   /* hdoc colors */
   --hdoc-prop: #81f5c1;
@@ -54,6 +55,7 @@ useHead({
 .holo-root[data-holo-theme="holographic-light"] {
   --component: 21deg 85% 60%;
   --theme: 151deg 70% 40%;
+  --setup: 210deg 70% 40%;
 
   /* hdoc colors */
   --hdoc-prop: #19744b;
@@ -71,6 +73,11 @@ useHead({
 
 .holo-variable-color-theme {
   --variable-color: var(--theme);
+  --readable-color: var(--background);
+}
+
+.holo-variable-color-setup {
+  --variable-color: var(--setup);
   --readable-color: var(--background);
 }
 
