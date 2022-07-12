@@ -60,7 +60,15 @@ const kebabName = computed(() => kebab(props.name))
         :color="dcolor"
         class="hdoc-head-icon"
       />
-      <h1 class="hdoc-head-title mono-font">
+      <h1
+        :class="[
+          'hdoc-head-title', 
+          { 
+            'mono-font': typeC,
+            'hdoc-title-adjust': !typeC
+          }
+        ]"
+      >
         <slot name="title">
           <span v-show="typeC">&lt;H</span>{{ name }}<span v-show="typeC">&gt;</span>
         </slot>
@@ -83,7 +91,7 @@ const kebabName = computed(() => kebab(props.name))
   height: 4em;
 }
 
-h1.hdoc-head-title {
+.hdoc-head-title {
   text-transform: none;
   margin-block: 0 0.25em;
 }
@@ -95,5 +103,9 @@ h1.hdoc-head-title {
 .hdoc-head-description {
   max-width: 40em;
   margin-block-end: 0;
+}
+
+.hdoc-title-adjust {
+  margin-block: 0.25em 0;
 }
 </style>
