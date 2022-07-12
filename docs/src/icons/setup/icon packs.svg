@@ -1,0 +1,8 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 9L3 3H9" stroke="currentColor" stroke-width="2" stroke-linejoin="bevel"/>
+<path d="M3 15L3 21H9" stroke="currentColor" stroke-width="2" stroke-linejoin="bevel"/>
+<path d="M21 9V3H15" stroke="currentColor" stroke-width="2" stroke-linejoin="bevel"/>
+<path d="M21 15V21H15" stroke="currentColor" stroke-width="2" stroke-linejoin="bevel"/>
+<circle cx="15" cy="9" r="2" stroke="currentColor" stroke-width="2"/>
+<path d="M6.82843 16L9.70711 13.1213L15 18.4142L16.4142 17L10.4142 11H9L6 14V16H6.82843Z" fill="currentColor"/>
+</svg>
