@@ -32,7 +32,7 @@ withDefaults(
 <style>
 .holo-badge {
   font-size: 0.85em;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.15em 0.5em;
@@ -40,6 +40,7 @@ withDefaults(
   min-height: 1.65em;
   border-radius: 2em;
   background-color: hsl(var(--variable-color) / 70%);
+  color: hsl(var(--readable-color));
 }
 
 .holo-badge-hollow {
