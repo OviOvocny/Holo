@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ComponentProp } from '@docs/types/ComponentDocumentation'
 import { reactive } from 'vue'
-import Checkbox from '../../../src/components/inputs/Checkbox/Checkbox.vue'
 
 const props = defineProps<{
   properties: ComponentProp[]
