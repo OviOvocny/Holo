@@ -24,6 +24,20 @@ useHead({
       <slot name="description" />
     </HeadPanel>
     <main>
+      <div class="configurator">
+        <h2>Configurator</h2>
+        <slot name="configPanelOverride">
+          <ConfigPanel
+            v-slot="{ config }"
+            :properties="docs.props ?? []"
+          >
+            <slot
+              name="configDisplay"
+              :config="config"
+            />
+          </ConfigPanel>
+        </slot>
+      </div>
       <div class="api-docs">
         <h2>API</h2>
         <h3

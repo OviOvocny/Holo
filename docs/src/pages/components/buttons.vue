@@ -11,6 +11,11 @@ import docs from '@/components/button/Button?docs'
       Universal button component. Semantic equivalent of HTML buttons.
       Supports theming, hologram effects, multiple variations.
     </template>
+    <template #configDisplay="{ config }">
+      <Button v-bind="config">
+        This is a button
+      </Button>
+    </template>
   </ComponentDoc>
 </template>
 

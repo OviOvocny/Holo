@@ -21,9 +21,12 @@ interface RouteSection {
 const navItems = computed(() => {
   const items: RouteSection[] = []
   for (const [section, title] of Object.entries(sections)) {
-    const routesInSection = routes.filter(
-      (route) => route.meta?.section === section
-    )
+    const routesInSection = routes
+      .filter((route) => route.meta?.section === section)
+      .sort(
+        (a, b) =>
+          (a.meta?.order as number) ?? 0 - (b.meta?.order as number) ?? 0
+      )
     items.push({
       section,
       title,
@@ -42,13 +45,16 @@ function iconName(route: RouteRecordRaw) {
 
 <template>
   <nav :class="['main-nav', `holo-variable-color-${activeColor}`]">
-    <router-link to="/">
-      <Icon
-        name="logo"
-        :size="60"
-        class="main-nav-logo"
-      />
-    </router-link>
+    <div class="main-nav-top">
+      <router-link to="/">
+        <Icon
+          name="logo"
+          :size="60"
+          class="main-nav-logo"
+        />
+      </router-link>
+      <Search />
+    </div>
     <List
       v-for="section in navItems"
       :key="section.section"
@@ -86,13 +92,25 @@ function iconName(route: RouteRecordRaw) {
   border-inline-end: 0.25em solid hsl(var(--variable-color));
 }
 
+.main-nav-top {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block: 0;
+}
+
+.main-nav-logo {
+  margin-block-start: 0.5em;
+}
+
 .nav-list {
   width: 100%;
 }
 
 .nav-list-icon {
   height: 1.5em;
-  margin-block: 0.1em;
+  margin-block: 0.15em 0;
   margin-inline-end: 0.25em;
 }
 </style>
