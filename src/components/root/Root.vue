@@ -66,9 +66,7 @@ provide('disableHolograms', disableHolograms)
 <style scoped>
 .holo-root {
   position: relative;
-  overflow: auto;
   z-index: 0;
-  min-height: 100vh;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   transition: background-color 0.7s var(--ease-out-expo);
