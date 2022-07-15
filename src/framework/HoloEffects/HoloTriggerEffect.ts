@@ -1,6 +1,6 @@
 import { defineComponent, PropType, watch } from 'vue'
 import LtHoloRenderer, { Trigger } from 'holocore'
-import type { TriggerOptions } from 'holocore/src/EffectDrivers/Trigger'
+import type { TriggerOptions } from 'holocore'
 
 export default defineComponent({
   name: 'HoloRippleEfect',

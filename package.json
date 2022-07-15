@@ -73,7 +73,7 @@
     "@vueuse/integrations": "^5.0.3",
     "body-scroll-lock": "^3.1.5",
     "colord": "^2.9.2",
-    "holocore": "^0.1.0",
+    "holocore": "^0.1.1",
     "vue": "^3.0.5"
   }
 }

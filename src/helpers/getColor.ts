@@ -1,4 +1,4 @@
-import type { RGB } from 'holocore/src/types'
+import type { RGB } from 'holocore'
 import { colord } from 'colord'
 
 export default function getColor(nameOrValue: string): RGB {

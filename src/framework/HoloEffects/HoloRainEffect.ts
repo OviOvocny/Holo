@@ -1,6 +1,6 @@
 import { defineComponent, PropType, watch } from 'vue'
 import LtHoloRenderer, { Rain } from 'holocore'
-import type { RainOptions } from 'holocore/src/EffectDrivers/Rain'
+import type { RainOptions } from 'holocore'
 
 export default defineComponent({
   name: 'HoloRainEfect',

@@ -1,5 +1,7 @@
 import { ref } from 'vue'
-import { normalizeCoordinates } from 'holocore/src/utils/normalizeCoordinates'
+import { utils } from 'holocore'
+
+const { normalizeCoordinates } = utils
 
 export default function usePointerEffects() {
   const hoverLocation = ref<[number, number]>([0, 0])

@@ -1,6 +1,6 @@
 import { defineComponent, PropType, watch } from 'vue'
 import LtHoloRenderer, { Ripple } from 'holocore'
-import type { RippleOptions } from 'holocore/src/EffectDrivers/Ripple'
+import type { RippleOptions } from 'holocore'
 
 export default defineComponent({
   name: 'HoloRippleEfect',

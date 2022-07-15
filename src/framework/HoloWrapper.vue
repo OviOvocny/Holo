@@ -9,7 +9,7 @@ import {
   nextTick
 } from 'vue'
 import Holo from 'holocore'
-import type { LtHoloOptions } from 'holocore/src/Holo'
+import { LtHoloOptions } from 'holocore/src/Holo'
 import getColor from '@/helpers/getColor'
 
 const theme = inject<ComputedRef<string>>('themeName')
