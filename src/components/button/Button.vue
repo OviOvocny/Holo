@@ -26,6 +26,10 @@ const props = withDefaults(
      * This removes border.
      */
     borderless?: boolean
+    /**
+     * Use symmetrical padding. This is useful for buttons with no text.
+     */
+    symmetrical?: boolean
   }>(),
   {
     color: 'foreground'
@@ -82,7 +86,8 @@ function passClick(e: MouseEvent) {
         [`holo-variable-color-${color}`, 
          { 
            'holo-button-hollow': hollow, 
-           'holo-button-borderless': borderless
+           'holo-button-borderless': borderless,
+           'holo-button-symmetrical': symmetrical
          }]"
       :disabled="disabled"
       @mousemove="updateHover"
@@ -100,6 +105,8 @@ function passClick(e: MouseEvent) {
 }
 
 .holo-button {
+  display: inline-flex;
+  align-items: center;
   background: hsl(var(--variable-color) / 70%);
   color: hsl(var(--readable-color));
   font-family: var(--text-font, var(--system-fonts-fallback));
@@ -149,6 +156,10 @@ function passClick(e: MouseEvent) {
 
 .holo-button-borderless {
   border-color: transparent;
+}
+
+.holo-button-symmetrical {
+  padding: 0.5em;
 }
 
 .holo-button-borderless:focus::before {
