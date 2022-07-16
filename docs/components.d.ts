@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     ConfigPanel: typeof import('./src/components/ConfigPanel.vue')['default']
     DynamicLinker: typeof import('./src/components/DynamicLinker.vue')['default']
     EmitDoc: typeof import('./src/components/apiDisplay/EmitDoc.vue')['default']
+    ExamplePanel: typeof import('./src/components/ExamplePanel.vue')['default']
     File: typeof import('./../src/components/inputs/file/File.vue')['default']
     HeadPanel: typeof import('./src/components/HeadPanel.vue')['default']
     Checkbox: typeof import('./../src/components/inputs/checkbox/Checkbox.vue')['default']

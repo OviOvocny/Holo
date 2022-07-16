@@ -6,7 +6,8 @@ import Components from 'unplugin-vue-components/vite'
 import { VitePluginFonts } from 'vite-plugin-fonts'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import generateSitemap from 'vite-ssg-sitemap'
-import docsLoader from './src/docsLoader'
+import docsLoader from './src/loaders/docsLoader'
+import codeLoader from './src/loaders/codeLoader'
 
 export default defineConfig(({ mode }) => {
   const alias =
@@ -27,6 +28,7 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       docsLoader(),
+      codeLoader(),
       Vue(),
       Components({
         dirs: [

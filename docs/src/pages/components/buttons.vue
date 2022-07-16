@@ -16,6 +16,13 @@ import docs from '@/components/button/Button?docs'
         This is a button
       </Button>
     </template>
+    <!-- <template #examples>
+      <ExamplePanel
+        set="buttons"
+        name="basic"
+        title="Basic"
+      />
+    </template> -->
   </ComponentDoc>
 </template>
 

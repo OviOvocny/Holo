@@ -9,5 +9,5 @@
       "@docs/*": ["src/*"]
     }
   },
-  "include": ["vite.config.ts", "src/docsLoader/**/*.ts", "src/types/**/*.ts"]
+  "include": ["vite.config.ts", "src/loaders/**/*.ts", "src/types/**/*.ts"]
 }
