@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ComponentDocumentation } from '@docs/types/ComponentDocumentation'
 import { useHead } from '@vueuse/head'
+import { useSlots } from 'vue'
 
 const props = defineProps<{
   name: string
@@ -10,6 +11,9 @@ const props = defineProps<{
 useHead({
   title: `${props.name} Component – Holo UI Docs`
 })
+
+const slots = useSlots()
+console.log(slots)
 </script>
 
 <template>
@@ -23,12 +27,16 @@ useHead({
       </template>
       <slot name="description" />
     </HeadPanel>
-    <main>
-      <div class="configurator">
+    <main class="content">
+      <section
+        v-if="Boolean($slots.configDisplay)"
+        class="configurator"
+      >
         <h2>Configurator</h2>
         <slot name="configPanelOverride">
           <ConfigPanel
             v-slot="{ config }"
+            :name="docs.name"
             :properties="docs.props ?? []"
           >
             <slot
@@ -37,8 +45,8 @@ useHead({
             />
           </ConfigPanel>
         </slot>
-      </div>
-      <div class="api-docs">
+      </section>
+      <section class="api-docs">
         <h2>API</h2>
         <h3
           v-show="docs.props"
@@ -73,7 +81,18 @@ useHead({
           :key="slot.name"
           :data="slot"
         />
-      </div>
+      </section>
+      <section 
+        v-if="Boolean($slots.examples)"
+        class="examples"
+      >
+        <h2>Examples</h2>
+        <client-only>
+          <suspense>
+            <slot name="examples" />
+          </suspense>
+        </client-only>
+      </section>
     </main>
   </div>
 </template>

@@ -53,7 +53,9 @@ function iconName(route: RouteRecordRaw) {
           class="main-nav-logo"
         />
       </router-link>
-      <Search />
+      <client-only>
+        <Search />
+      </client-only>
     </div>
     <List
       v-for="section in navItems"
@@ -77,6 +79,22 @@ function iconName(route: RouteRecordRaw) {
         {{ route.name }}
       </ListItem>
     </List>
+    <div class="nav-footer">
+      <a
+        href="https://github.com/oviovocny/holo"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="github" />
+      </a>
+      <a
+        href="https://npm.im/holo-vue"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="npm" />
+      </a>
+    </div>
   </nav>
 </template>
 
@@ -85,9 +103,12 @@ function iconName(route: RouteRecordRaw) {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 1em 1.5em;
   padding-inline-end: 0;
+  padding-block-end: 2em;
   margin: 0;
   border-inline-end: 0.25em solid hsl(var(--variable-color));
 }
@@ -108,9 +129,33 @@ function iconName(route: RouteRecordRaw) {
   width: 100%;
 }
 
+.nav-list-item.router-link-active:hover {
+  color: hsl(var(--readable-color));
+}
+
 .nav-list-icon {
   height: 1.5em;
   margin-block: 0.15em 0;
   margin-inline-end: 0.25em;
+}
+
+.nav-footer {
+  display: flex;
+  align-items: center;
+  margin-block: 1em 2em;
+}
+
+.nav-footer a {
+  font-size: 1.15em;
+  margin-inline-end: 0.5em;
+}
+
+.nav-footer a,
+.nav-footer a:visited {
+  color: hsl(var(--foreground));
+}
+
+.nav-footer a:hover {
+  color: hsl(var(--variable-color));
 }
 </style>
