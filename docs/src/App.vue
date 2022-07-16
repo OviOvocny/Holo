@@ -31,7 +31,9 @@ useHead({
         <Navigation />
       </Area>
       <Area area="content">
-        <RouterView />
+        <div class="fixed-scroller">
+          <RouterView />
+        </div>
       </Area>
     </AGrid>
   </Root>
@@ -41,7 +43,7 @@ useHead({
 .holo-root[data-holo-theme="holographic-dark"] {
   --component: 21deg 85% 60%;
   --theme: 151deg 70% 60%;
-  --setup: 210deg 70% 60%;
+  --start: 210deg 70% 60%;
 
   /* hdoc colors */
   --hdoc-prop: #81f5c1;
@@ -55,7 +57,7 @@ useHead({
 .holo-root[data-holo-theme="holographic-light"] {
   --component: 21deg 85% 60%;
   --theme: 151deg 70% 40%;
-  --setup: 210deg 70% 40%;
+  --start: 210deg 70% 40%;
 
   /* hdoc colors */
   --hdoc-prop: #19744b;
@@ -76,8 +78,8 @@ useHead({
   --readable-color: var(--background);
 }
 
-.holo-variable-color-setup {
-  --variable-color: var(--setup);
+.holo-variable-color-start {
+  --variable-color: var(--start);
   --readable-color: var(--background);
 }
 
@@ -86,12 +88,31 @@ useHead({
 }
 
 .main-grid {
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.fixed-scroller {
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.content {
+  max-width: 65ch;
+}
+
+.content section {
+  padding-bottom: 1em;
 }
 
 /* common hdoc styles */
 .hdoc {
   margin-block: 0.75em 1em;
+}
+
+.hdoc:last-child {
+  margin-block-end: 0;
 }
 
 .hdoc-prefix {

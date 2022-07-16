@@ -3,17 +3,15 @@
 
 <template>
   <HeadPanel 
-    type="setup"
-    name="Installing Holo"
-    icon="setup-installation"
+    :type="$route.meta.section"
+    name="Icon Packs"
   >
     I'll tell you later
   </HeadPanel>
 </template>
 
 <route lang="yaml">
-name: Installation
+name: Icon Packs
 meta:
-  section: setup
-  order: -1
+  section: start
 </route>
