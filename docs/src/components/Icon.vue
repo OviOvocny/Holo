@@ -6,12 +6,12 @@ const props = withDefaults(
     prefix?: string
     name: string
     color?: string
-    size?: number | undefined
+    size?: string | number
   }>(),
   {
     prefix: 'icon',
     color: 'inherit',
-    size: undefined
+    size: '1em'
   }
 )
 
