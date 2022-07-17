@@ -11,6 +11,7 @@ import {
 import Holo from 'holocore'
 import { LtHoloOptions } from 'holocore/src/Holo'
 import getColor from '@/helpers/getColor'
+import { useResizeObserver, useDebounceFn } from '@vueuse/core'
 
 const theme = inject<ComputedRef<string>>('themeName')
 const disabledGlobally = inject('disableHolograms') as ComputedRef<boolean>
@@ -71,6 +72,8 @@ watch(
 
 watch([() => props.color, theme], createHolo)
 
+useResizeObserver(self, useDebounceFn(createHolo, 200))
+
 watch(
   () => props.disabled,
   (disabled) => {
@@ -92,11 +95,11 @@ watch(disabledGlobally, (disabled) => {
 </script>
 
 <template>
-  <slot
-    name="effects"
-    :renderer="holo"
-  />
   <div :class="['holo-wrapper', $attrs.class, { 'holo-wrapper-block': block }]">
+    <slot
+      name="effects"
+      :renderer="holo"
+    />
     <div
       ref="self"
       class="holo-render"
@@ -122,6 +125,7 @@ watch(disabledGlobally, (disabled) => {
   position: absolute;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   z-index: -1;
 }
 
