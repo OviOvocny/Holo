@@ -15,10 +15,12 @@ const rangeValue = ref([25, 75])
       ...
     </template>
     <template #configDisplay="{ config }">
-      <RangeSlider
-        v-bind="config"
-        v-model="rangeValue"
-      />
+      <client-only>
+        <RangeSlider
+          v-bind="config"
+          v-model="rangeValue"
+        />
+      </client-only>
     </template>
     <!-- <template #examples>
       ...

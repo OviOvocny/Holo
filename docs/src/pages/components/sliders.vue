@@ -15,10 +15,12 @@ const sliderValue = ref(50)
       ...
     </template>
     <template #configDisplay="{ config }">
-      <Slider
-        v-bind="config"
-        v-model="sliderValue"
-      />
+      <client-only>
+        <Slider
+          v-bind="config"
+          v-model="sliderValue"
+        />
+      </client-only>
     </template>
     <!-- <template #examples>
       ...
