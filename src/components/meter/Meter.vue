@@ -9,8 +9,20 @@ import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * [[color]] You can provide multiple
+     * colors by passing an array.
+     * They will spread evenly across the meter.
+     */
     colors?: string | string[]
+    /**
+     * Number of segments to divide the meter into.
+     */
     steps?: number
+    /**
+     * Current fill value between
+     * 0 and the step count.
+     */
     value?: number
   }>(),
   {
@@ -49,6 +61,7 @@ const meterParts = computed(() => {
     <div
       v-for="{ color, active, index } in meterParts"
       :key="index"
+      role="progressbar"
       class="holo-meter-part"
       :class="
         [`holo-variable-color-${color}`, 
@@ -64,6 +77,7 @@ const meterParts = computed(() => {
   display: flex;
   justify-content: space-evenly;
   margin-block: 0.25em;
+  width: 100%;
 }
 
 .holo-meter-part {

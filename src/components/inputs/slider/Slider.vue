@@ -9,11 +9,21 @@ export default {
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
+    /** [[v-model]] */
     modelValue: number
+    /** Lower bound of the slider. */
     min?: number | string
+    /** Upper bound of the slider. */
     max?: number | string
+    /** [[color]] */
     color?: string
+    /**
+     * Removes the track color fill behind the thumb.
+     */
     noFill?: boolean
+    /**
+     * Renders the track thin, making the thumb more prominent.
+     */
     thin?: boolean
   }>(),
   {

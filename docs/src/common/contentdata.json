@@ -8,6 +8,10 @@
     "color":
       "Color of the component. Accepts any variable color name. See [Colors] to learn more.",
     "disabled":
-      "Disables the form control, same as HTML's disabled attribute."
+      "Disables the form control, same as HTML's disabled attribute.",
+    "forms-name":
+      "Name of the form control. Same as HTML's name attribute.",
+    "v-model":
+      "Bidirectional Vue binding of the input value."
   }
 }

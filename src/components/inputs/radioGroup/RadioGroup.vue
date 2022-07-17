@@ -17,6 +17,10 @@ withDefaults(
     disabled?: boolean
     color?: string
     loading?: boolean
+    /**
+     * A collection of selectable options for the button group.
+     * Each option is an object entry in the form of value: label.
+     */
     options?: RadioGroupOptions
   }>(),
   {

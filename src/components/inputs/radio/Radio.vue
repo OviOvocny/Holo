@@ -9,11 +9,25 @@ export default {
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
+    /**
+     * [[v-model]] This will change to reflect
+     * the value of the selected radio button.
+     * Bind multiple radio buttons to the same variable.
+     */
     modelValue?: string | number
+    /**
+     * The value of this single radio button.
+     */
     value: string | number
+    /** [[forms-name]] */
     name?: string
+    /** [[disabled]] */
     disabled?: boolean
+    /** [[color]] */
     color?: string
+    /**
+     * Applies a loading animation.
+     */
     loading?: boolean
   }>(),
   {
@@ -96,6 +110,7 @@ const checked = computed(() => props.modelValue === props.value)
       </svg>
     </span>
     <span class="holo-radio-label">
+      <!--+ Label of the radio button -->
       <slot />
     </span>
   </label>

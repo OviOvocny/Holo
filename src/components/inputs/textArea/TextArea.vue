@@ -13,13 +13,30 @@ import usePointerEffects from '@/hooks/usePointerEffects'
 
 const props = withDefaults(
   defineProps<{
+    /** [[v-model]] */
     modelValue?: string | number
+    /** [[forms-name]] */
     name?: string
+    /**
+     * Label of the text area.
+     * Shown above it in a little flag.
+     */
     label?: string
+    /**
+     * Number of rows in the text area.
+     */
     rows?: number
+    /** [[color]] */
     color?: string
+    /** [[disabled]] */
     disabled?: boolean
+    /**
+     * Removes background color.
+     */
     hollow?: boolean
+    /**
+     * Removes border.
+     */
     borderless?: boolean
   }>(),
   {
@@ -27,7 +44,6 @@ const props = withDefaults(
     name: undefined,
     label: undefined,
     rows: 2,
-    type: 'text',
     color: 'foreground'
   }
 )
@@ -151,7 +167,7 @@ function focusEffect() {
 .holo-text-area:disabled {
   background: hsl(var(--variable-color) / 50%);
   color: hsl(var(--readable-color));
-  border-style: dashed;
+  border-bottom-style: dashed;
   cursor: not-allowed;
   filter: saturate(0.7);
 }

@@ -4,7 +4,7 @@ import docs from '@/components/button/Button?docs'
 
 <template>
   <ComponentDoc
-    name="Button"
+    :name="String($route.name)"
     :docs="docs"
   >
     <template #description>

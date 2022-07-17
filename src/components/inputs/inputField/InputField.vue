@@ -13,13 +13,32 @@ import usePointerEffects from '@/hooks/usePointerEffects'
 
 const props = withDefaults(
   defineProps<{
+    /** [[v-model]] */
     modelValue?: string | number
+    /**
+     * Defines the input type.
+     * Use HTML textual input field types,
+     * like text, number, password, etc.
+     */
     type?: string
+    /** [[forms-name]] */
     name?: string
+    /**
+     * Label of the input field.
+     * Shown above it in a little flag.
+     */
     label?: string
+    /** [[color]] */
     color?: string
+    /** [[disabled]] */
     disabled?: boolean
+    /**
+     * Removes background color.
+     */
     hollow?: boolean
+    /**
+     * Removes border.
+     */
     borderless?: boolean
   }>(),
   {
@@ -152,7 +171,7 @@ function focusEffect() {
 .holo-input-field:disabled {
   background: hsl(var(--variable-color) / 50%);
   color: hsl(var(--readable-color));
-  border-style: dashed;
+  border-bottom-style: dashed;
   cursor: not-allowed;
   filter: saturate(0.7);
 }

@@ -1,7 +1,7 @@
 {
   "name": "holo-vue",
-  "version": "0.1.2",
-  "homepage": "https://altarsystems.com/",
+  "version": "0.2.0",
+  "homepage": "https://holo.ovi.moe/",
   "description": "Holo is a Vue 3 UI library inspired by over-the-top sci-fi eyecandy (yes, really)",
   "author": {
     "name": "Ovi",

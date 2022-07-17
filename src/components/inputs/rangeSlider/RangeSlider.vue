@@ -9,11 +9,21 @@ export default {
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
+    /** [[v-model]] Both lower and upper bound of the current value. */
     modelValue: [number, number]
+    /** Lower bound of the slider. */
     min?: number | string
+    /** Upper bound of the slider. */
     max?: number | string
+    /** [[color]] */
     color?: string
+    /**
+     * Removes the track color fill between the thumbs.
+     */
     noFill?: boolean
+    /**
+     * Renders the track thin, making the thumbs more prominent.
+     */
     thin?: boolean
   }>(),
   {
@@ -149,6 +159,7 @@ function targetCloserThumb(e: PointerEvent) {
   font-size: 0.875rem;
   height: 1em;
   margin-block: 0.5em;
+  width: 100%;
 }
 
 .holo-range-slider {

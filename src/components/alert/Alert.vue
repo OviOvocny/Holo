@@ -10,7 +10,11 @@ import HoloRainEffect from '@/framework/HoloEffects/HoloRainEffect'
 
 withDefaults(
   defineProps<{
+    /** [[color]] */
     color?: string
+    /**
+     * Whether the hologram effect is applied.
+     */
     hologram?: boolean
   }>(),
   {
@@ -45,6 +49,7 @@ withDefaults(
       class="holo-alert"
       :class="[`holo-variable-color-${color}`]"
     >
+      <!--+ Content of the alert -->
       <slot />
     </div>
   </HoloWrapper>

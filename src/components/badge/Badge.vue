@@ -7,7 +7,11 @@ export default {
 <script setup lang="ts">
 withDefaults(
   defineProps<{
+    /** [[color]] */
     color?: string
+    /**
+     * Removes background color from the badge.
+     */
     hollow?: boolean
   }>(),
   {
@@ -25,6 +29,7 @@ withDefaults(
          'holo-badge-hollow': hollow
        }]"
   >
+    <!--+ Content of the badge -->
     <slot />
   </div>
 </template>

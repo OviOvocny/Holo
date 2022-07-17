@@ -9,8 +9,18 @@ import { onMounted, ref, watch } from 'vue'
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * Boolean binding to determine
+     * if the notification is visible.
+     * Gets reset after timeout.
+     */
     modelValue: boolean
+    /** [[color]] */
     color?: string
+    /**
+     * Sets the duration of the notification
+     * in milliseconds.
+     */
     timeout?: number
   }>(),
   {
@@ -64,12 +74,15 @@ onMounted(() => {
       @pointerleave="start"
     >
       <div class="holo-notification-side">
+        <!--+ Inline start slot for icons etc. -->
         <slot name="aside" />
       </div>
       <div class="holo-notification-content">
         <div class="holo-notification-title">
+          <!--+ Notification title -->
           <slot name="title" />
         </div>
+        <!--+ Notification content -->
         <slot />
       </div>
     </div>

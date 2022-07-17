@@ -10,10 +10,17 @@ export default {
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
+    /** [[v-model]] */
     modelValue?: boolean
+    /** [[forms-name]] */
     name?: string
+    /** [[disabled]] */
     disabled?: boolean
+    /** [[color]] */
     color?: string
+    /**
+     * Applies a loading animation.
+     */
     loading?: boolean
   }>(),
   {
@@ -128,6 +135,7 @@ watch(
       </svg>
     </span>
     <span class="holo-checkbox-label">
+      <!--+ Label of the checkbox -->
       <slot />
     </span>
   </label>

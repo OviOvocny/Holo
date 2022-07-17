@@ -9,10 +9,19 @@ import { computed, provide, ref, watch } from 'vue'
 
 const props = withDefaults(
   defineProps<{
+    /** Name of the light theme. */
     themeLight?: string
+    /** Name of the dark theme. */
     themeDark?: string
+    /** Sets whether dark theme is active. */
     darkAppearance?: boolean
+    /**
+     * Automatically switches theme
+     * based on the OS. This overrides
+     * the darkAppearance prop.
+     */
     usesSystemAppearance?: boolean
+    /** Globally disables hologram effects. */
     noHolograms?: boolean
   }>(),
   {
@@ -56,7 +65,7 @@ provide('disableHolograms', disableHolograms)
     class="holo-root"
     :data-holo-theme="themeName"
   >
-    <!-- Main content slot -->
+    <!--+ Main content slot -->
     <slot />
     <!-- Teleport targets -->
     <div class="holo-notification-root" />
