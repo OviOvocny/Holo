@@ -6,6 +6,7 @@ import { useClipboard } from '@vueuse/core'
 const props = defineProps<{
   name: string
   properties: ComponentProp[]
+  selfClosing: boolean
 }>()
 
 type Config = Record<string, string | number | boolean | object>
@@ -27,15 +28,27 @@ function fallback(propType: string) {
   }
 }
 
+function isDefined(value: string) {
+  return value !== 'undefined'
+}
+
 function sanitize(value: string) {
   // strip single quotes and trim
   return value.replace(/'/g, '').trim()
 }
 
-const defaultProps: Config = props.properties.reduce(
+const excludedProps = ['modelValue', 'name']
+const configurableProps = props.properties.filter(
+  (prop) => !excludedProps.includes(prop.name)
+)
+
+const defaultProps: Config = configurableProps.reduce(
   (acc, cur) => ({
     ...acc,
-    [cur.name]: cur.default ? sanitize(cur.default) : fallback(cur.type)
+    [cur.name]:
+      cur.default && isDefined(cur.default)
+        ? sanitize(cur.default)
+        : fallback(cur.type)
   }),
   {}
 )
@@ -53,13 +66,18 @@ const outputTag = computed(() => {
       if (!prop) {
         return null
       }
-      const { type, default: defaultValue } = prop
-      if (defaultValue && sanitize(defaultValue) === value) {
+      const { type } = prop
+      const defaultValue = defaultProps[name] as string
+      if (defaultValue === value) {
         return null
       }
       switch (type) {
         case 'boolean':
-          return value ? name : null
+          if (defaultValue === 'true') {
+            return value ? null : `:${name}=${value}`
+          } else {
+            return value ? name : null
+          }
         case 'number':
           return `:${name}="${value}"`
         case 'string':
@@ -74,7 +92,11 @@ const outputTag = computed(() => {
     .join(' ')
     .trim()
   const openingTag = `${name} ${configProps}`.trim()
-  return `<${openingTag}></${name}>`
+  if (props.selfClosing) {
+    return `<${openingTag} />`
+  } else {
+    return `<${openingTag}></${name}>`
+  }
 })
 
 const { copy, isSupported: clipboardSupported } = useClipboard({
@@ -98,7 +120,7 @@ const { copy, isSupported: clipboardSupported } = useClipboard({
     <Area area="controls">
       <List>
         <ListItem
-          v-for="prop in properties"
+          v-for="prop in configurableProps"
           :key="prop.name"
         >
           <Checkbox
@@ -108,10 +130,10 @@ const { copy, isSupported: clipboardSupported } = useClipboard({
             {{ prop.name }}
           </Checkbox>
           <InputField
-            v-if="prop.type === 'string' || prop.type === 'number'"
+            v-if="prop.type.includes('string') || prop.type.includes('number')"
             v-model="config[prop.name]"
             class="config-input"
-            :type="prop.type === 'number' ? 'number' : 'text'"
+            :type="prop.type.includes('number') ? 'number' : 'text'"
             :label="prop.name"
           />
         </ListItem>

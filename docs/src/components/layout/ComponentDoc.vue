@@ -1,19 +1,16 @@
 <script setup lang="ts">
 import { ComponentDocumentation } from '@docs/types/ComponentDocumentation'
 import { useHead } from '@vueuse/head'
-import { useSlots } from 'vue'
 
 const props = defineProps<{
   name: string
   docs: ComponentDocumentation
+  selfClosing?: boolean
 }>()
 
 useHead({
   title: `${props.name} Component – Holo UI Docs`
 })
-
-const slots = useSlots()
-console.log(slots)
 </script>
 
 <template>
@@ -38,6 +35,7 @@ console.log(slots)
             v-slot="{ config }"
             :name="docs.name"
             :properties="docs.props ?? []"
+            :self-closing="selfClosing"
           >
             <slot
               name="configDisplay"
@@ -49,7 +47,7 @@ console.log(slots)
       <section class="api-docs">
         <h2>API</h2>
         <h3
-          v-show="docs.props"
+          v-show="docs.props && docs.props.length > 0"
           class="api-doc-section api-doc-props"
         >
           Properties
@@ -60,7 +58,7 @@ console.log(slots)
           :data="prop"
         />
         <h3
-          v-show="docs.emits"
+          v-show="docs.emits && docs.emits.length > 0"
           class="api-doc-section api-doc-events"
         >
           Events
@@ -71,7 +69,7 @@ console.log(slots)
           :data="emit"
         />
         <h3
-          v-show="docs.slots"
+          v-show="docs.slots && docs.slots.length > 0"
           class="api-doc-section api-doc-slots"
         >
           Slots
@@ -93,6 +91,7 @@ console.log(slots)
           </suspense>
         </client-only>
       </section>
+      <slot name="after" />
     </main>
   </div>
 </template>
