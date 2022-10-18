@@ -55,5 +55,9 @@ app.mount('#app')
 ### Step 3: Triangles everywhere
 Speed-run is over, now read the docs anyway. Make a Root. Build the rest of the owl— er, app.
 
+## Sponsors
+### Platinum Sponsors
+<img src="https://avatars.githubusercontent.com/u/61143280?s=32&v=4" style="border-radius:50%"/> <a href="https://github.com/poli-cz">poli-cz</a>
+
 ## Contributing
 I'll get to it. :)
