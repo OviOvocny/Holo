@@ -1,6 +1,6 @@
 {
   "name": "holo-vue",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://holo.ovi.moe/",
   "description": "Holo is a Vue 3 UI library inspired by over-the-top sci-fi eyecandy (yes, really)",
   "author": {
@@ -15,6 +15,7 @@
   "typings": "./dist/types/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/holo-vue.es.js",
       "require": "./dist/holo-vue.umd.js"
     },
@@ -73,7 +74,7 @@
     "@vueuse/integrations": "^5.0.3",
     "body-scroll-lock": "^3.1.5",
     "colord": "^2.9.2",
-    "holocore": "^0.1.1",
+    "holocore": "^0.1.2",
     "vue": "^3.0.5"
   }
 }
